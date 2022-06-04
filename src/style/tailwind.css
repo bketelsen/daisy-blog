@@ -6,3 +6,6 @@
   border-radius: var(--rounded-box);
   padding: 1rem;
 }
+ figure > figcaption > p {
+	@apply text-accent/90 text-center;
+ }

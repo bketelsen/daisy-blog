@@ -1,5 +1,6 @@
 ---
-import "../../style/tailwind.css"
+import '@fontsource/inter/variable-full.css';
+import "../../style/tailwind.css";
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
 import ThemeChange from "@components/ThemeChange";
@@ -20,7 +21,7 @@ const {img} = Astro.props;
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </Head>
 <body class="flex flex-col items-center h-screen h-[100svh]">
-	<div class="w-full max-w-3xl flex-grow">
+	<div class="flex-grow w-full max-w-5xl">
 		<Navbar>
 			<ThemeChange />
 		</Navbar>

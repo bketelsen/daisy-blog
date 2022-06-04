@@ -6,7 +6,7 @@ import { published, getRSS } from "@data/post"
 export async function getStaticPaths({ rss }) {
 	const markdownFiles = await Astro.glob('../content/**/*.md');
 	const posts = published( markdownFiles );
-	
+
 	rss(getRSS(markdownFiles));
 
 	return posts.map((post) => {
@@ -38,7 +38,7 @@ const { post: { Content }, post } = Astro.props;
 					<Date date={post.date}/>
 				</span>
 				{post.author &&
-					<span class="text-sm text-base-content/70">By {post.author}</span>
+					<span class="text-sm text-accent/80">By {post.author}</span>
 				}
 			</div>
 			<div>
@@ -47,3 +47,4 @@ const { post: { Content }, post } = Astro.props;
 		</div>
 	</div>
 </Blog>
+

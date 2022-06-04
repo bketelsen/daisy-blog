@@ -2,13 +2,20 @@
 title: Top 10 furniture design trends for 2022
 date: 2022-04-08
 author: Pouya
-desc: Laudantium iste repellat et. Et officiis corporis. At est placeat voluptas aut. Soluta dolor quae quae tempora. Voluptatibus quibusdam natus. Facilis ea repellendus expedita voluptatum rerum autem.
+desc: Laudantium iste repellat et. Et officiis corporis. At est placeat voluptas
+  aut. Soluta dolor quae quae tempora. Voluptatibus quibusdam natus. Facilis ea
+  repellendus expedita voluptatum rerum autem.
 img: https://api.lorem.space/image/furniture?w=500&h=500
 imgWidth: 500
 imgHeight: 500
+setup: |
+  import { Image } from 'astro-eleventy-img';
+lastmod: 2022-06-03T14:55:18.725Z
 ---
 
 Molestias laudantium dolorem impedit quam eaque suscipit voluptatem vel. Sit et sit autem quae dicta repellat magnam. Iste corporis nihil enim nobis. Ea omnis qui illo ratione. Et eius est mollitia.
+
+<Image src="src/assets/blog/introducing-astro.jpg" alt="My super image!" caption="This is my favorite image." />
 
 Id dicta cumque saepe enim reprehenderit quidem quis mollitia sit. Aspernatur quia doloribus ipsa. Soluta quis necessitatibus eaque dolorem sunt voluptates neque. Sit cumque dolor distinctio. Fugiat nostrum consequatur.
 
