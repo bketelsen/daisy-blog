@@ -1,34 +1,54 @@
 ---
-import '@fontsource/inter/variable-full.css';
 import "../../style/tailwind.css";
-import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
-import ThemeChange from "@components/ThemeChange";
-import Head from '@components/Head'
-const {title} = Astro.props;
-const {desc} = Astro.props;
-const {img} = Astro.props;
+import Navbar from "@components/Navbar";
+
+const { title } = Astro.props;
+const { desc } = Astro.props;
+const { img } = Astro.props;
+const { waves } = Astro.props || true;
 ---
+
+<!DOCTYPE html>
 <html lang="en">
-<Head
-	title={title}
-	desc={desc}
-	img={img}
->
-	<script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-</Head>
-<body class="flex flex-col items-center h-screen h-[100svh]">
-	<div class="flex-grow w-full max-w-5xl">
-		<Navbar>
-			<ThemeChange />
-		</Navbar>
-		<div class="p-4 pb-10">
-			<slot />
-		</div>
+
+<head>
+	<title>{title}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-tailwind.png">
+	<script src="../js/main.js"></script>
+</head>
+
+<body class="antialiased bg-body text-body font-body">
+	<div class="">
+		<section class="relative overflow-hidden bg-white">
+			<Navbar />
+			{waves &&
+			<div class="w-full wave-bottom text-coolGray-900">
+				<svg viewBox="0 0 1440 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M1440 51.4091H1090.08C833.336 51.4091 580.229 116 360 116C139.771 116 0 51.4091 0 51.4091V0H1440V51.4091Z"
+						fill="currentColor"></path>
+				</svg>
+			</div>
+		}
+		</section>
+		<slot />
+		{waves &&
+
+		<div class="w-full wave-top text-coolGray-900">
+			<svg viewBox="0 0 1440 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+			  <path d="M0 64.5909H349.922C606.664 64.5909 859.771 -7.62939e-06 1080 -7.62939e-06C1300.23 -7.62939e-06 1440 64.5909 1440 64.5909V116H0V64.5909Z" fill="currentColor"></path>
+			</svg>
+		  </div>
+		}
+		<Footer />
 	</div>
-	<Footer />
 </body>
+
 </html>

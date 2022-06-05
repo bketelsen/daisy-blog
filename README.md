@@ -23,3 +23,4 @@ https://daisy-blog.netlify.app/
 
 <img width="1512" alt="Screen Shot 2022-04-09 at 12 25 04 AM" src="https://user-images.githubusercontent.com/7342023/162526692-b7f82574-495f-47dc-ac4c-cc00b98412c1.png">
 
+  content: ['./src/**/*.{astro,html,svelte,vue,js,ts,jsx,tsx}'],

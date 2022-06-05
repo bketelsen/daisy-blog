@@ -1,7 +1,6 @@
 ---
 import { published } from "@data/post"
-import Blog from "@layouts/blog";
-import Features from "@components/Features";
+import Blog from "@layouts/shuffle";
 import Card from "@components/blog/card";
 
 
@@ -9,28 +8,24 @@ const markdownFiles = await Astro.glob('../content/**/*.md')
 const posts = published( markdownFiles );
 ---
 
-<Blog>
-<Features
-	title="My Title"
-	subtitle="My Subtitle"
-></Features>
+<Blog title="Brian Ketelsen" waves={true}>
+	<section class="py-16 bg-white md:py-24 lg:pb-52" style="background-image: url('flex-ui-assets/elements/pattern-white.svg'); background-repeat: no-repeat; background-position: center top;">
+        <div class="container max-w-5xl px-4 mx-auto">
+          <div class="flex flex-wrap items-center mb-16">
+            <div class="w-full mb-8 md:w-3/4 md:mb-0">
+              <span class="inline-block px-2 py-px mb-4 text-xs font-medium leading-5 text-blue-500 uppercase bg-blue-100 rounded-full shadow-sm">Blog</span>
+              <h3 class="mb-4 text-4xl font-bold leading-tight tracking-tighter md:text-5xl text-darkCoolGray-900">Recent posts</h3>
+              <p class="text-lg font-medium md:text-xl text-coolGray-500">With our integrated CRM, project management, collaboration and invoicing capabilities, you can manage your business in one secure platform.</p>
+            </div>
+            <div class="w-full md:w-1/4"><a class="flex items-center justify-center px-4 py-2 ml-auto text-sm font-medium leading-5 bg-blue-500 rounded-md text-blue-50 hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 md:max-w-max" href="/blog">View All Posts</a></div>
+          </div>
+          <div class="flex flex-wrap -mx-4">
+			{posts.map((p) =>
+				<Card post={p} />
+			)}
 
-<div class="relative px-4 pt-16 pb-20 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
-	<div class="absolute inset-0">
-	  <div class="bg-base-300 h-1/3 sm:h-2/3"></div>
-	</div>
-	<div class="relative mx-auto max-w-7xl">
-	  <div class="text-center">
-		<h2 class="text-3xl font-extrabold tracking-tight text-base-content sm:text-4xl">From the blog</h2>
-		<p class="max-w-2xl mx-auto mt-3 text-xl text-base-content sm:mt-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.</p>
-	  </div>
-	  <div class="grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">
-
-		{posts.map((p) =>
-			<Card post={p} />
-		)}
-	  </div>
-	</div>
-  </div>
+          </div>
+        </div>
+      </section>
 
 </Blog>

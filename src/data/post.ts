@@ -12,6 +12,8 @@ export type Post = {
 	date: string,
 	file: URL,
 	img: URL,
+	imgWidth: number,
+	imgHeight: number
 }
 
 export function single(post: MarkdownInstance): Post {
@@ -35,8 +37,8 @@ export function published(posts: MarkdownInstance[]): Post[] {
 
 export function getRSS(posts: MarkdownInstance[]) {
 	return {
-		title: 'Astro Blog',
-		description: 'Astro Blog Feed',
+		title: 'Brian Ketelsen',
+		description: 'Blog Feed',
 		stylesheet: true,
 		customData: `<language>en-us</language>`,
 		items: published(posts).map((post: Post) => ({
