@@ -1,17 +1,18 @@
 ---
-import "../../style/tailwind.css";
 import Footer from "@components/Footer";
 import Navbar from "@components/Navbar";
 
-const { content } = Astro.props;
-
+const { title } = Astro.props;
+const { desc } = Astro.props;
+const { img } = Astro.props;
+const { waves } = Astro.props || true;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<title>{content.title}</title>
+	<title>{title}</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
@@ -26,7 +27,7 @@ const { content } = Astro.props;
 	<div class="">
 		<section class="relative overflow-hidden bg-white">
 			<Navbar />
-			{content.waves &&
+			{waves &&
 			<div class="w-full wave-bottom text-coolGray-900">
 				<svg viewBox="0 0 1440 116" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
@@ -39,7 +40,7 @@ const { content } = Astro.props;
 		<div class="mx-auto my-20 prose prose-xl max-w-prose">
 			<slot />
 		</div>
-		{content.waves &&
+		{waves &&
 
 		<div class="w-full wave-top text-coolGray-900">
 			<svg viewBox="0 0 1440 116" fill="none" xmlns="http://www.w3.org/2000/svg">
