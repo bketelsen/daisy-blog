@@ -39,7 +39,7 @@ const { post: { Content }, post } = Astro.props;
           adipiscing elit.</p>
         <div
           class="inline-block px-3 py-1 text-xs font-medium leading-5 text-blue-500 uppercase bg-blue-100 rounded-full shadow-sm">
-          Technology</div>
+          {post.category}</div>
       </div>
       <div class="mx-auto mb-10 overflow-hidden rounded-lg max-w-max">
         {post.img && post.imgWidth && post.imgHeight ?
@@ -56,7 +56,7 @@ const { post: { Content }, post } = Astro.props;
       <div class="mx-auto md:max-w-3xl">
         <p class="pb-10 mb-8 text-lg font-medium border-b md:text-xl text-coolGray-500 border-coolGray-100">{post.desc}
         </p>
-        <div class="prose prose-lg">
+        <div class="prose prose-xl">
           <Content />
         </div>
       </div>

@@ -15,6 +15,9 @@
 			"@data/*": [
 				"src/data/*.ts"
 			],
+			"@assets/*": [
+				"src/assets/*"
+			],
 		},
 	}
 }
