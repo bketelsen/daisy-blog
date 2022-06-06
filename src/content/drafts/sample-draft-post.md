@@ -6,6 +6,7 @@ desc: Laudantium iste repellat et. Et officiis corporis. At est placeat voluptas
 img: https://api.lorem.space/image/furniture?w=800&h=500&hash=1
 imgWidth: 800
 imgHeight: 500
+category: Your Mom
 ---
 
 This post is going to show up in a development environment, but won't be published when building for production!

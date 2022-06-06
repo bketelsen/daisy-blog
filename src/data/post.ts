@@ -13,7 +13,8 @@ export type Post = {
 	file: URL,
 	img: URL,
 	imgWidth: number,
-	imgHeight: number
+	imgHeight: number,
+	category: string
 }
 
 export function single(post: MarkdownInstance): Post {
