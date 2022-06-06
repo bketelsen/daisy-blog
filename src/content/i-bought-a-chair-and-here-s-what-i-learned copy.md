@@ -9,7 +9,7 @@ img: https://api.lorem.space/image/furniture?w=800&h=500
 imgWidth: 800
 imgHeight: 500
 lastmod: 2022-06-03T14:57:12.751Z
-category: your mom
+category: mom
 ---
 
 Molestias laudantium dolorem impedit quam eaque suscipit voluptatem vel. Sit et sit autem quae dicta repellat magnam. Iste corporis nihil enim nobis. Ea omnis qui illo ratione. Et eius est mollitia.

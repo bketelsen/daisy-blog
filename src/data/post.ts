@@ -35,6 +35,18 @@ export function published(posts: MarkdownInstance[]): Post[] {
 		.filter(post => MODE === 'development' || !post.draft)
 		.sort((a, b) => b.timestamp - a.timestamp)
 }
+export function withCategory(category: string, posts: MarkdownInstance[]): Post[] {
+	return posts
+		.filter(post => post.frontmatter.title)
+		.map(post => single(post))
+		.filter(post => post.category.toLowerCase() === category)
+		.sort((a, b) => b.timestamp - a.timestamp)
+}
+export function allCategories( posts: MarkdownInstance[]): string[] {
+	return posts
+		.map(post => post.frontmatter.category.toLowerCase())
+}
+
 
 export function getRSS(posts: MarkdownInstance[]) {
 	return {

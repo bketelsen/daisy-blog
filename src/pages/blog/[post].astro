@@ -4,7 +4,7 @@ import Date from "@components/utilities/Date";
 import { published, getRSS } from "@data/post"
 
 export async function getStaticPaths({ rss }) {
-  const markdownFiles = await Astro.glob('../content/**/*.md');
+  const markdownFiles = await Astro.glob('../../content/**/*.md');
   const posts = published(markdownFiles);
 
   rss(getRSS(markdownFiles));
@@ -23,7 +23,7 @@ const { post: { Content }, post } = Astro.props;
 
 <Blog waves={true} title={post.title} desc={post.desc} img={post.img ? post.img : null}>
   <section class="py-16 bg-white md:py-24"
-    style="background-image: url('flex-ui-assets/elements/pattern-white.svg'); background-position: center top;">
+    style="background-image: url('/flex-ui-assets/elements/pattern-white.svg'); background-position: center top;">
     <div class="container px-4 mx-auto">
       <div class="mx-auto mb-12 text-center md:max-w-2xl">
         <div class="flex items-center justify-center">

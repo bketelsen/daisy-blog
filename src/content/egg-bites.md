@@ -3,11 +3,11 @@ title: Egg Bites
 date: 2019-09-13
 author: Brian
 desc: This post is a change from the usual technical content. I made my own Egg Bites this morning, inspired by the delicious ones I like to get at Starbucks.
-img: src/assets/blog/eggbites/eggbites.jpeg
+img: /src/assets/blog/eggbites/eggbites.jpeg
 imgWidth: 800
 imgHeight: 500
 lastmod: 2022-06-03T14:57:12.751Z
-category: Recipes
+category: recipes
 setup: |
   import { Image } from 'astro-eleventy-img';
 ---
