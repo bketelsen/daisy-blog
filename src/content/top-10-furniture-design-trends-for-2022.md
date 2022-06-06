@@ -6,7 +6,7 @@ category: mom
 desc: Laudantium iste repellat et. Et officiis corporis. At est placeat voluptas
   aut. Soluta dolor quae quae tempora. Voluptatibus quibusdam natus. Facilis ea
   repellendus expedita voluptatum rerum autem.
-img: https://api.lorem.space/image/furniture?w=500&h=500
+img: /src/assets/eggbites.jpeg
 imgWidth: 500
 imgHeight: 500
 

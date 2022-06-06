@@ -5,7 +5,7 @@ author: Brian
 desc: Laudantium iste repellat et. Et officiis corporis. At est placeat voluptas
   aut. Soluta dolor quae quae tempora. Voluptatibus quibusdam natus. Facilis ea
   repellendus expedita voluptatum rerum autem.
-img: https://api.lorem.space/image/furniture?w=800&h=500
+img: /src/assets/eggbites.jpeg
 imgWidth: 800
 imgHeight: 500
 lastmod: 2022-06-03T14:57:12.751Z
