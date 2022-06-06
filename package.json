@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^0.2.1",
+    "@sarissa/pagination": "^1.0.3",
     "astro-eleventy-img": "^0.3.2",
     "astro-imagetools": "^0.6.9"
   }

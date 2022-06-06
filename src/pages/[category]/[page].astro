@@ -2,6 +2,7 @@
 import { published, withCategory, allCategories } from "@data/post"
 import Blog from "@layouts/blog";
 import Card from "@components/blog/card";
+import { Pagination } from "@sarissa/pagination";
 
 export async function getStaticPaths({paginate}) {
   const markdownFiles = await Astro.glob('../../content/**/*.md');
@@ -20,6 +21,8 @@ export async function getStaticPaths({paginate}) {
 const { page } = Astro.props;
 console.log(page)
 const params = Astro.params;
+const totalPage = page.lastPage;
+const currentPage = page.currentPage;
 ---
 
 <Blog title="Brian Ketelsen | Blog" waves={true}>
@@ -40,6 +43,8 @@ const params = Astro.params;
         <Card post={p} />
         )}
       </div>
+      <Pagination currentPage={currentPage} {totalPage} url={params.category}/>
+
 <div class="flex items-center justify-between px-4 py-4 my-6 bg-white border-t border-gray-200 sm:px-6">
   <div class="flex justify-between flex-1 sm:hidden">
     <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"> Previous </a>

@@ -6,11 +6,35 @@ waves: true
 
 
 ## {frontmatter.title}
-Molestias laudantium dolorem impedit quam eaque suscipit voluptatem vel. Sit et sit autem quae dicta repellat magnam. Iste corporis nihil enim nobis. Ea omnis qui illo ratione. Et eius est mollitia.
 
-Id dicta cumque saepe enim reprehenderit quidem quis mollitia sit. Aspernatur quia doloribus ipsa. Soluta quis necessitatibus eaque dolorem sunt voluptates neque. Sit cumque dolor distinctio. Fugiat nostrum consequatur.
+<p>
+          Howdy! Thanks for stopping by. I&apos;m Brian Ketelsen, and I&apos;ve been doing
+          technology things since <a href="https://en.wikipedia.org/wiki/Acoustic_coupler">acoustic modem couplers</a> were a thing. I love Open Source and
+          exploring different programming languages. Some highlights about me and my activities:
+        </p>
 
-Cum vitae explicabo aspernatur rerum. Tenetur possimus quos eveniet. Repellat eveniet repellat maiores magnam voluptas dolor. Mollitia possimus laborum unde eius sunt. Repellat eos possimus nulla cum accusamus numquam labore dolore.
+<ul>
+          <li>Army Veteran, Bradley Fighting Vehicle Gunner, Infantry, 1st Armored Division</li>
+          <li>Father of four with 19 years difference between oldest and youngest child</li>
+          <li>Co-founded GopherCon, the largest conference for Go developers</li>
+          <li>Co-authored <a href="https://www.amazon.com/Go-Action-William-Kennedy/dp/1617291781">Go In Action</a> for Manning Publishing</li>
+          <li>
+            Along with Erik St. Martin, I wrote Skynet and SkyDNS, which was eventually morphed into
+            the DNS service discovery that powers Kubernetes.
+          </li>
+          <li>Contributor to virtual kubelet and Krustlet</li>
+        </ul>
 
-Molestias laudantium dolorem impedit quam eaque suscipit voluptatem vel. Sit et sit autem quae dicta repellat magnam. Iste corporis nihil enim nobis. Ea omnis qui illo ratione. Et eius est mollitia.
-
+<p>
+          I&apos;ve worked in a lot of interesting industries from Consumer Credit to Healthcare, in
+          jobs ranging from DBA to Chief Information Officer. I&apos;m currently loving life at
+          Microsoft as a Cloud Developer Advocate.
+        </p>
+        <p>
+          I love to teach because I&apos;m always learning new things. Cloud Advocacy also gives me
+          the freedom to experiment with new and interesting things every day.
+        </p>
+        <p>
+          My most exciting moment in Open Source came when I got a letter of thanks from the JPL at
+          NASA for a library I wrote. They used it on one of the Rover missions.
+        </p>
