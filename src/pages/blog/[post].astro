@@ -2,12 +2,13 @@
 import Blog from "@layouts/blog";
 import Date from "@components/utilities/Date";
 import { published, getRSS } from "@data/post"
+import { Picture } from "astro-imagetools/components";
+
 
 export async function getStaticPaths({ rss }) {
   const markdownFiles = await Astro.glob('../../content/**/*.md');
   const posts = published(markdownFiles);
 
-  rss(getRSS(markdownFiles));
 
   return posts.map((post) => {
     return {
@@ -41,17 +42,15 @@ const { post: { Content }, post } = Astro.props;
           class="inline-block px-3 py-1 text-xs font-medium leading-5 text-blue-500 uppercase bg-blue-100 rounded-full shadow-sm">
           {post.category}</div>
       </div>
-      <div class="mx-auto mb-10 overflow-hidden rounded-lg max-w-max">
-        {post.img && post.imgWidth && post.imgHeight ?
+      <div class="max-w-4xl mx-auto mb-10 overflow-hidden rounded-lg">
         <figure class="flex justify-center">
-          <img src={post.img} alt={post.title} width={post.imgWidth} height={post.imgHeight}
-            class="rounded bg-base-200" />
+          <Picture
+            src={post.img}
+            alt={post.title}
+            sizes="(min-width: 1024px) 1024px, 100vw"
+            />
         </figure>
-        : post.img &&
-        <figure class="flex justify-center">
-          <img src={post.img} alt={post.title} class="rounded bg-base-200" />
-        </figure>
-        }
+
       </div>
       <div class="mx-auto md:max-w-3xl">
         <p class="pb-10 mb-8 text-lg font-medium border-b md:text-xl text-coolGray-500 border-coolGray-100">{post.desc}

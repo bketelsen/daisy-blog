@@ -1,18 +1,16 @@
 ---
 import type { Post } from '@data/post';
 import Date from "@components/utilities/Date";
-
+import { Picture } from "astro-imagetools/components";
 const post: Post = Astro.props.post
 ---
 
 <div class="w-full px-4 pb-4 shadow-xl md:w-1/2 lg:w-1/3">
   <a class="block mb-6 overflow-hidden rounded-md" href={`/blog/${post.slug}`}>
-    {post.img && post.imgWidth && post.imgHeight ?
-    <img src={post.img.toString()} alt={post.title} width={post.imgWidth} height={post.imgHeight}
-      class="rounded bg-base-200" />
-    : post.img &&
-    <img src={post.img.toString()} alt={post.title} class="rounded bg-base-200" />
-    }
+    <Picture
+    src={post.img}
+    alt={post.title}
+    />
   </a>
   <p class="mb-2 font-medium text-coolGray-500">{post.author} •
     <Date date={post.date} />
