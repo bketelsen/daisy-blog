@@ -4,7 +4,7 @@ import Blog from "@layouts/blog";
 import Card from "@components/blog/card";
 
 
-const markdownFiles = await Astro.glob('../../content/**/*.md')
+const markdownFiles = await Astro.glob('../../content/blog/**/*.md')
 const posts = published(markdownFiles);
 ---
 
