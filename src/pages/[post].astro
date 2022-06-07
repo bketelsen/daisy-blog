@@ -6,7 +6,7 @@ import { Picture } from "astro-imagetools/components";
 
 
 export async function getStaticPaths({ rss }) {
-  const markdownFiles = await Astro.glob('../../content/**/*.md');
+  const markdownFiles = await Astro.glob('../content/**/*.md');
   const posts = published(markdownFiles);
 
 
