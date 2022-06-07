@@ -1,6 +1,6 @@
 ---
 const siteInfo = {
-  siteName: 'Daisy Blog',
+  siteName: 'Brian Ketelsen',
   siteDesc: 'This is a simple blog',
 }
 
@@ -31,7 +31,7 @@ if(!img) {
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-tailwind.png">
     <script src="../components/js/main.js"></script>
   <!-- core -->
-	{title && <title>{title}</title>}
+	{title && <title>{title} | {siteInfo.siteName}</title>}
 	{desc && <meta name="description" content={desc}>}
 	<!-- twitter -->
 	<meta name="twitter:card" content="summary_large_image" />

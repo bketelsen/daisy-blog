@@ -1,7 +1,6 @@
 ---
 layout: ../layouts/page.astro
 title: Liam
-waves: true
 ---
 
 
