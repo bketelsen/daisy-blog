@@ -4,8 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import { astroImageTools } from "astro-imagetools";
 
-
-
 // https://astro.build/config
 export default defineConfig(
 	/** @type {import('astro').AstroUserConfig} */
@@ -23,7 +21,7 @@ export default defineConfig(
 				}
 			}]
 		},
-		site: 'http://brian.dev',
+		site: 'https://brian.dev',
 
 		integrations: [astroImageTools,sitemap(),tailwind()]
 	});

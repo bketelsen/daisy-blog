@@ -1,5 +1,5 @@
 ---
-layout: ../components/layouts/page.astro
+layout: ../layouts/page.astro
 title: Liam
 waves: true
 ---

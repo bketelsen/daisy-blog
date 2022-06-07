@@ -1,0 +1,20 @@
+---
+import Footer from "@components/Footer";
+import Navbar from "@components/Navbar";
+import WavesBottom from "./WavesBottom.astro";
+import WavesTop from "./WavesTop.astro";
+---
+
+<body class="antialiased bg-body text-body font-body">
+    <div class="">
+        <section class="relative overflow-hidden bg-white">
+            <Navbar />
+            <slot name="hero"/>
+
+            <WavesTop />
+        </section>
+        <slot />
+        <WavesBottom />
+        <Footer />
+    </div>
+</body>

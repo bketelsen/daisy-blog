@@ -10,7 +10,7 @@
 				"src/components/*.astro"
 			],
 			"@layouts/*": [
-				"src/components/layouts/*.astro"
+				"src/layouts/*.astro"
 			],
 			"@data/*": [
 				"src/data/*.ts"
