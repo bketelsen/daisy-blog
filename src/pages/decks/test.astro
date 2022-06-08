@@ -2,6 +2,7 @@
 import Reveal from "@layouts/reveal";
 import MDSlide from "@components/reveal/MDSlide";
 import Slide from "@components/reveal/Slide";
+import SvelteSlide from "../../components/reveal/SvelteSlide.svelte";
 
 ---
 <Reveal>
@@ -12,6 +13,10 @@ import Slide from "@components/reveal/Slide";
 `
 }
 </MDSlide>
+<SvelteSlide dataTransition="convex">
+<h1>Stuff</h1>
+</SvelteSlide>
+
 <Slide bgColor="#f00">
     <h1>Red BG</h1>
 </Slide>
@@ -29,7 +34,16 @@ Slide 2
 Slide 3
 </MDSlide>
 
-
+<MDSlide>
+<textarea data-template>
+```js [1-2|3|4]
+let a = 1;
+let b = 2;
+let c = x => 1 + 2 + x;
+c(3);
+```
+</textarea>
+</MDSlide>
 
 <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
     <script type="text/template">
