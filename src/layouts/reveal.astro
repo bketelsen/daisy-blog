@@ -1,0 +1,59 @@
+---
+
+import Prose from "@components/Prose";
+import Head from "@components/Head";
+import MainLayout from "@components/MainLayout";
+import "@fontsource/inter"
+
+
+const {title} = Astro.props;
+const {desc} = Astro.props;
+const {img} = Astro.props;
+
+
+---
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>{title}</title>
+
+		<link rel="stylesheet" href="/reveal/reveal.css">
+		<link rel="stylesheet" href="/reveal/theme/white.css" id="theme">
+
+        <link rel="stylesheet" href="/reveal/plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+                <div class="slides"><slot /></div>
+		</div>
+
+		<script is:inline src="/reveal/reveal.js"></script>
+        <script is:inline src="/reveal/plugin/markdown/markdown.js"></script>
+        <script is:inline src="/reveal/plugin/highlight/highlight.js"></script>
+        <script  is:inline src="/reveal/plugin/notes/notes.js"></script>
+        <script is:inline src="/reveal/plugin/math/math.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+			});
+
+		</script>
+
+	</body>
+</html>
+
+
