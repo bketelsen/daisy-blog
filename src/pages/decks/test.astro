@@ -1,15 +1,24 @@
 ---
 import Reveal from "@layouts/reveal";
 import MDSlide from "@components/reveal/MDSlide";
-
-
+import Slide from "@components/reveal/Slide";
 
 ---
 <Reveal>
-
-
 <MDSlide>
-<script type="text/template">
+{
+`<!-- .slide: data-background="#00FF00" -->
+# Green BG
+`
+}
+</MDSlide>
+<Slide bgColor="#f00">
+    <h1>Red BG</h1>
+</Slide>
+<Slide>
+    <h1>No BG</h1>
+</Slide>
+<MDSlide>
 ## Brian 1
 Slide 1
 ---
@@ -18,7 +27,6 @@ Slide 2
 ---
 ## Brian 1
 Slide 3
-</script>
 </MDSlide>
 
 
@@ -40,53 +48,7 @@ Slide 2
     </script>
 </section>
 
-<section data-markdown data-separator="$x">
-    <script type="text/template">
-A
 
----
-
-B
-
----
-
-C
-    </script>
-</section>
-
-<section data-markdown>
-    <script type="text/template">
-<!-- .slide: data-background="#000000" -->
-## Slide attributes
-    </script>
-</section>
-
-<section data-markdown>
-    <script type="text/template">
-        ## Element attributes
-        - Item 1 <!-- .element: class="fragment" data-fragment-index="2" -->
-        - Item 2 <!-- .element: class="fragment" data-fragment-index="1" -->
-    </script>
-</section>
-
-<section data-markdown>
-    <script type="text/template">
-        ```php [1|3-5]
-        public function foo()
-        {
-            $foo = array(
-            'bar' => 'bar'
-            )
-        }
-        ```
-    </script>
-</section>
-
-<section data-markdown>
-    <script type="text/template">
-        ![Sample image](https://s3.amazonaws.com/static.slid.es/logo/v2/slides-symbol-512x512.png)
-    </script>
-</section>
 
 
 

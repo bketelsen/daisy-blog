@@ -3,9 +3,9 @@ export interface Props {
 	bgColor?: string;
 
 }
-const { bgColor } = Astro.props;
+const { bgColor} = Astro.props;
 ---
 
-<section data-markdown>
+<section data-background-color={bgColor}>
         <slot />
 </section>
