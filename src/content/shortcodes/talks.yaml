@@ -1,0 +1,7 @@
+target: https://www.brian.dev/elsewhere
+variations:
+  - id: 1
+    campaign: mycampaign
+    medium: social
+    source: twitter
+

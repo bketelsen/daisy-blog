@@ -1,0 +1,5 @@
+feed_id:           snippets
+title:             "snippet Title"
+link:              "https://www.brian.dev/snippets"
+description:       "Do this with that!"
+publish_date:      "2021-05-0"

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+{{ range . -}}
+~/go/bin/azureog --bgImg static/og-standard.png -fontPath static/FiraSans-Light.ttf -output static/images/og-{{.id}}.png -title "{{.title}}"
+{{- end }}

@@ -1,0 +1,5 @@
+feed_id:           bytes
+title:             "Item Title"
+link:              "https://www.brian.dev"
+description:       "I found this interesting thing..."
+publish_date:      "2021-01-01"

@@ -1,0 +1,22 @@
+ <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+ <channel>
+
+     <title>articles</title>
+     <description>articles data feed</description>
+     <link>https://www.brian.dev/</link>
+     <atom:link href="https://api.brian.dev/rss.xml" rel="self" type="application/rss+xml" />
+     <pubDate>{{ now }}</pubDate>
+     <ttl>1440</ttl>
+
+    {{ range .}}
+    <item>
+        <title>{{ .title }}</title>
+        <description>{{ .excerpt }}</description>
+        <link>https://api.brian.dev/api/articles/{{ .id }}</link>
+        <guid>https://api.brian.dev/api/articles/{{ .id }}</guid>
+        <pubDate>{{ rfcdate .publish_date }}</pubDate>
+    </item>
+    {{ end }}
+
+</channel>
+</rss>
