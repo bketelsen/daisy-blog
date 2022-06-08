@@ -1,8 +1,7 @@
 ---
 import { published } from "@data/media"
 import Blog from "@layouts/blog";
-import Card from "@components/blog/card";
-
+import Date from "@components/utilities/Date";
 
 const markdownFiles = await Astro.glob('../../content/media/**/*.md')
 const posts = published(markdownFiles);
@@ -20,38 +19,40 @@ const posts = published(markdownFiles);
             and Screencasts</h3>
           <p class="text-lg font-medium md:text-xl text-coolGray-500">Sometimes seeing is believing.</p>
         </div>
+        <div class="container py-5 mx-auto">
+          <div class="divide-y-2 divide-gray-100">
+            {posts.map((p) =>
 
-      </div>
-      <div class="flex flex-wrap">
-        {posts.map((p) =>
-
-        <div class="flex flex-wrap py-8 md:flex-nowrap">
-          <div class="flex flex-col flex-shrink-0 mb-6 md:w-64 md:mb-0">
-            <span class="font-semibold text-gray-700 title-font">{p.host}</span>
-            <span class="mt-1 text-sm text-gray-500">12 Jun 2019</span>
-            {p.participants &&
-            <span class="mt-3 text-sm text-gray-500">with</span>
-            }
-            {p.participants.map((part) =>
-            <span class="mt-1 text-sm text-gray-500">{part}</span>
+            <div class="flex flex-wrap py-8 md:flex-nowrap">
+              <div class="flex flex-col flex-shrink-0 mb-6 md:w-64 md:mb-0">
+                <span class="font-semibold text-gray-700 uppercase title-font">{p.host}</span>
+                <span class="mt-1 text-sm text-gray-500"><Date date={p.date} /></span>
+                {p.participants &&
+                <span class="mt-3 text-sm text-gray-500">with</span>
+                }
+                {p.participants.map((part) =>
+                <span class="mt-1 text-sm text-gray-900">{part}</span>
+                )}
+              </div>
+              <div class="ml-4 md:ml-0 md:flex-grow">
+                <h2 class="mb-2 text-2xl font-medium text-gray-900 title-font">{p.title}</h2>
+                <p class="leading-relaxed">{p.desc}</p>
+                <a href={p.url} class="inline-flex items-center mt-4 text-blue-700">View
+                  <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
             )}
-
-          </div>
-          <div class="md:flex-grow">
-            <h2 class="inline-block mb-4 text-2xl font-bold leading-tight font-title text-coolGray-800 hover:text-coolGray-900 hover:underline">{p.title}</h2>
-            <p class="leading-relaxed">{p.desc}</p>
-            <a class="inline-flex items-center mt-4 text-indigo-500">View
-              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14"></path>
-                <path d="M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
           </div>
         </div>
-        )}
       </div>
+
     </div>
   </section>
+  <section class="overflow-hidden text-gray-600 body-font">
 
+  </section>
 </Blog>
