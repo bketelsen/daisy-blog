@@ -1,6 +1,6 @@
 ---
 import Reveal from "@layouts/reveal";
-
+import MDSlide from "@components/reveal/MDSlide";
 
 
 
@@ -8,61 +8,59 @@ import Reveal from "@layouts/reveal";
 <Reveal>
 
 
-<section data-markdown>
-    <script type="text/template">
-        ## Demo 1
-        Slide 1
-        ---
-        ## Demo 1
-        Slide 2
-        ---
-        ## Demo 1
-        Slide 3
-    </script>
-</section>
+<MDSlide>
+<script type="text/template">
+## Brian 1
+Slide 1
+---
+## Brian 1
+Slide 2
+---
+## Brian 1
+Slide 3
+</script>
+</MDSlide>
 
-<!-- Slides are separated by regexp matching newline + three dashes + newline, vertical slides identical but two dashes -->
+
+
 <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
     <script type="text/template">
-        ## Demo 2
-        Slide 1.1
+## Demo 2
+Slide 1.1
 
-        --
+--
 
-        ## Demo 2
-        Slide 1.2
+## Demo 2
+Slide 1.2
 
-        ---
+---
 
-        ## Demo 2
-        Slide 2
+## Demo 2
+Slide 2
     </script>
 </section>
 
-<!-- No "extra" slides, since the separator can't be matched ("---" will become horizontal rulers) -->
 <section data-markdown data-separator="$x">
     <script type="text/template">
-        A
+A
 
-        ---
+---
 
-        B
+B
 
-        ---
+---
 
-        C
+C
     </script>
 </section>
 
-<!-- Slide attributes -->
 <section data-markdown>
     <script type="text/template">
-        <!-- .slide: data-background="#000000" -->
-        ## Slide attributes
+<!-- .slide: data-background="#000000" -->
+## Slide attributes
     </script>
 </section>
 
-<!-- Element attributes -->
 <section data-markdown>
     <script type="text/template">
         ## Element attributes
@@ -71,7 +69,6 @@ import Reveal from "@layouts/reveal";
     </script>
 </section>
 
-<!-- Code -->
 <section data-markdown>
     <script type="text/template">
         ```php [1|3-5]
@@ -85,7 +82,6 @@ import Reveal from "@layouts/reveal";
     </script>
 </section>
 
-<!-- Images -->
 <section data-markdown>
     <script type="text/template">
         ![Sample image](https://s3.amazonaws.com/static.slid.es/logo/v2/slides-symbol-512x512.png)
