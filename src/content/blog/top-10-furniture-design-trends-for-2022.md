@@ -9,7 +9,8 @@ desc: Laudantium iste repellat et. Et officiis corporis. At est placeat voluptas
 img: /src/assets/eggbites.jpeg
 imgWidth: 500
 imgHeight: 500
-
+setup: |
+  import { Picture } from "astro-imagetools/components";
 lastmod: 2022-06-03T14:55:18.725Z
 ---
 
