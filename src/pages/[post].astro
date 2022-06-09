@@ -3,6 +3,7 @@ import Blog from "@layouts/blog";
 import Date from "@components/utilities/Date";
 import { published, getRSS } from "@data/post"
 import { Picture } from "astro-imagetools/components";
+import { SocialImage } from 'astro-social-images';
 
 
 export async function getStaticPaths({ rss }) {
@@ -21,7 +22,19 @@ export async function getStaticPaths({ rss }) {
 // Destructure to get both `Astro.props.post` and `Astro.props.post.Content`
 const { post: { Content }, post } = Astro.props;
 ---
-
+<SocialImage
+  backgroundColor="#28262c"
+  texts={[
+    {
+      content: 'brian.dev',
+      attributes: { x: '55', y: '105', 'font-size': '70px', fill: '#fefffe' },
+    },
+    {
+      content: post.title,
+      attributes: { x: '50', y: '325', 'font-size': '50px', fill: '#fefffe' },
+    },
+  ]}
+/>
 <Blog waves={true} title={post.title} desc={post.desc} img={post.img ? post.img : null}>
   <section class="py-16 bg-white md:py-24"
     style="background-image: url('/flex-ui-assets/elements/pattern-white.svg'); background-position: center top;">
