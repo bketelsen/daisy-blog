@@ -9,3 +9,6 @@ export function getArticle(id) {
 export function getCategory(id) {
     return data.categories.find(p => p.id === id);
 }
+export function getImage(id) {
+    return data.images.find(p => p.id === id);
+}

@@ -1,6 +1,7 @@
 ---
 import Blog from "@layouts/blog";
-import { getProfile } from "../../data/blox.js";
+import { getProfile, getImage } from "../../data/blox.js";
+import { Picture } from "astro-imagetools/components";
 
 
 export async function getStaticPaths() {
@@ -8,7 +9,6 @@ export async function getStaticPaths() {
 
   return markdownFiles.map((article) => {
     const id = article.file.split('/').reverse()[0].replace('.md', '');
-    console.log(id)
     return {
       params: { id: id },
       props: { article }
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 
 const { article: { Content }, article } = Astro.props;
 const prof = getProfile(article.frontmatter.profile);
-
+const image = getImage(article.frontmatter.image);
 ---
 
 <Blog title="Blog">
@@ -42,7 +42,13 @@ const prof = getProfile(article.frontmatter.profile);
         </div>
       </div>
       <div class="max-w-4xl mx-auto mb-10 overflow-hidden rounded-lg">
-
+        <figure class="flex justify-center">
+          <Picture
+            src={'/src/content/static/' + image.file_name}
+            alt={article.frontmatter.title}
+            sizes="(min-width: 1024px) 1024px, 100vw"
+            />
+        </figure>
       </div>
       <div class="mx-auto md:max-w-3xl">
         <p class="pb-10 mb-8 text-lg font-medium border-b md:text-xl text-coolGray-500 border-coolGray-100">
