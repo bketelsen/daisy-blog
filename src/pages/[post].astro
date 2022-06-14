@@ -47,6 +47,8 @@ const { post: { Content }, post } = Astro.props;
           <Picture
             src={post.img}
             alt={post.title}
+            width={post.imgWidth}
+            height={post.imgHeight}
             sizes="(min-width: 1024px) 1024px, 100vw"
             />
         </figure>
