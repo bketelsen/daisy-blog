@@ -1,6 +1,8 @@
 ---
 layout: ../layouts/page.astro
 title: Liam
+setup: |
+  import Bookmark from "../components/cards/Bookmark.astro";
 ---
 
 
@@ -36,4 +38,10 @@ We still have at least one more surgery in the foreseeable future and maybe more
 ### Our Friends, Family, and You
 
 We're extremely grateful for the support that we've received from friends, family, and our extended Facebook, Twitter and Instagram communities. Thank you all so much for the gifts, words of encouragement, support, and prayers. Please know that this support means everything to us right now. The support groups we would traditionally rely on are mostly unavailable to us due to distance and Covid 19. We have no family that lives close.
+
+<Bookmark
+    url="https://www.amazon.com"
+    title="Liam's Amazon Wishlist"
+    description="Send Liam something from his Amazon wishlist, curated specifically to his unique needs." />
+
 
