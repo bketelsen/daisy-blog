@@ -6,13 +6,15 @@ export interface Props {
 
 }
 import gmeta from 'gmeta';
+import { Img } from "astro-imagetools/components";
+
 
 const {url,title,description} = Astro.props;
 const meta = await gmeta(url);
 ---
 <a href={url} class="no-underline">
 <div class="bg-yellow-200 hover:shadow-3xl card lg:card-side">
-    <figure class="m-0 "><img class="hidden lg:block" src="/src/assets/dog-error-side.png" alt="dog" width="200" height="200"></figure>
+    <figure class="m-0 "><Img src="/src/assets/dog-error-side.png" alt="dog" layout="fill"  height={280} width={200} attributes={{img:{style:"hidden lg:block"}}}/></figure>
 
     <div class="card-body">
       <h2 class="card-title">{title}</h2>
