@@ -15,8 +15,14 @@
 			"@data/*": [
 				"src/data/*.ts"
 			],
+			"@lib/*": [
+				"src/lib/*.ts"
+			],
 			"@assets/*": [
 				"src/assets/*"
+			],
+			"@style/*": [
+				"src/style/*"
 			],
 			"@content/*": [
 				"src/content/*"

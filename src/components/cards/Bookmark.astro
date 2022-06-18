@@ -13,10 +13,10 @@ const {url,title,description} = Astro.props;
 const meta = await gmeta(url);
 ---
 <a href={url} class="no-underline">
-<div class="bg-yellow-200 hover:shadow-3xl card lg:card-side">
-    <figure class="m-0 "><Img src="/src/assets/dog-error-side.png" alt="dog" layout="fill"  height={280} width={200} attributes={{img:{style:"hidden lg:block"}}}/></figure>
+<div class="bg-yellow-200 hover:shadow-3xl card card-side">
+    <figure class="w-1/2 m-0"><Img src="/src/assets/dog-error-side.png" alt="dog" layout="fill"  height={280} width={200} /></figure>
 
-    <div class="card-body">
+    <div class=" card-body">
       <h2 class="card-title">{title}</h2>
       <p class="prose prose-xl">{description}</p>
       <div class="justify-end card-actions">

@@ -1,0 +1,355 @@
+---
+
+import Features from "@components/Features";
+import Head from "@components/Head";
+import MainLayout from "@components/MainLayout";
+import "@fontsource/inter"
+import "../style/screen.css"
+
+const { title } = Astro.props;
+const { desc } = Astro.props;
+const { img } = Astro.props;
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    :root {
+      --button-bg-color: #ffffff;
+      --button-text-color: var(--color-darkgrey);
+    }
+
+  </style>
+
+</head>
+
+<body class="post-template tag-meta tag-go">
+  <div class="viewport">
+
+    <header id="gh-head" class="gh-head has-cover">
+      <nav class="gh-head-inner inner gh-container">
+
+        <div class="gh-head-brand">
+          <a class="gh-head-logo" href="https://www.brian.dev">
+            <img src="https://www.brian.dev/content/images/2022/05/brian-light-2.svg" alt="Brian Ketelsen" />
+          </a>
+          <a class="gh-burger" role="button">
+            <div class="gh-burger-box">
+              <div class="gh-burger-inner"></div>
+            </div>
+          </a>
+        </div>
+        <div class="gh-head-menu">
+          <ul class="nav">
+            <li class="nav-home"><a href="https://www.brian.dev/">Home</a></li>
+            <li class="nav-about"><a href="https://www.brian.dev/about/">About</a></li>
+          </ul>
+
+        </div>
+        <div class="gh-head-actions">
+          <div class="gh-social">
+            <a class="gh-social-facebook" href="https://www.facebook.com/bketelsen" title="Facebook" target="_blank"
+              rel="noopener"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0zm5.204 4.911h-3.546c-2.103 0-4.443.885-4.443 3.934.01 1.062 0 2.08 0 3.225h-2.433v3.872h2.509v11.147h4.61v-11.22h3.042l.275-3.81h-3.397s.007-1.695 0-2.187c0-1.205 1.253-1.136 1.329-1.136h2.054V4.911z" />
+              </svg></a>
+            <a class="gh-social-twitter" href="https://twitter.com/bketelsen" title="Twitter" target="_blank"
+              rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                <path
+                  d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z" />
+              </svg>
+            </a>
+          </div>
+
+          <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="site-content">
+
+
+
+
+      <main id="site-main" class="site-main">
+        <article class="article post tag-meta tag-go featured ">
+
+          <header class="article-header gh-canvas">
+
+            <section class="article-tag">
+              <a href="https://www.brian.dev/tag/meta/">Meta</a>
+            </section>
+
+            <h1 class="article-title">About This Site</h1>
+
+            <p class="article-excerpt">Meta Information about this blog - frontend and backend technologies.</p>
+
+            <div class="article-byline">
+              <section class="article-byline-content">
+                <ul class="author-list">
+                  <li class="author-list-item">
+                    <a href="/author/brian/" class="author-avatar">
+                      <img class="author-profile-image" src="/content/images/size/w100/2022/05/logo-copy-1.png"
+                        alt="Brian Ketelsen" />
+                    </a>
+                  </li>
+                </ul>
+                <div class="article-byline-meta">
+                  <h4 class="author-name"><a href="/author/brian/">Brian Ketelsen</a></h4>
+                  <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2022-05-16">May 16, 2022</time>
+                    <span class="byline-reading-time"><span class="bull">&bull;</span> 2 min read</span>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <figure class="article-image">
+              <img srcset="/content/images/size/w300/2022/05/time-machine.jpg 300w,
+                                /content/images/size/w600/2022/05/time-machine.jpg 600w,
+                                /content/images/size/w1000/2022/05/time-machine.jpg 1000w,
+                                /content/images/size/w2000/2022/05/time-machine.jpg 2000w"
+                sizes="(min-width: 1400px) 1400px, 92vw" src="/content/images/size/w2000/2022/05/time-machine.jpg"
+                alt="About This Site" />
+            </figure>
+          </header>
+
+          <section class="gh-content gh-canvas">
+            <!--kg-card-begin: markdown-->
+            <h2 id="source-code">Source Code</h2>
+            <p>The source code for this blog and the backend that powers it is on <a
+                href="https://github.com/bketelsen/">GitHub</a>. It is Open Source under the MIT License. Feel free to
+              fork and use it for your own needs!</p>
+            <!--kg-card-end: markdown-->
+            <!--kg-card-begin: markdown-->
+            <h3 id="technologies">Technologies</h3>
+            <ul>
+              <li>The <a href="https://github.com/bketelsen/bkencore">backend</a> is powered by <a
+                  href="https://encore.dev">Encore</a> hosted on Azure.</li>
+              <li>The <a href="https://github.com/bketelsen/nextghost">frontend</a> is running <a
+                  href="https://nextjs.org">Next.js</a> hosted on Vercel.</li>
+              <li>The content and images are served by Ghost running headless at <a href="https://fly.io">fly.io</a>.
+              </li>
+            </ul>
+            <!--kg-card-end: markdown-->
+            <p>Gopher images are courtesy of Ashley McNamara. </p>
+            <figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container"
+                href="https://github.com/ashleymcnamara/gophers">
+                <div class="kg-bookmark-content">
+                  <div class="kg-bookmark-title">GitHub - ashleymcnamara/gophers: Gopher Artwork by Ashley McNamara
+                  </div>
+                  <div class="kg-bookmark-description">Gopher Artwork by Ashley McNamara. Contribute to
+                    ashleymcnamara/gophers development by creating an account on GitHub.</div>
+                  <div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.com/fluidicon.png"
+                      alt=""><span class="kg-bookmark-author">GitHub</span><span
+                      class="kg-bookmark-publisher">ashleymcnamara</span></div>
+                </div>
+                <div class="kg-bookmark-thumbnail"><img
+                    src="https://opengraph.githubassets.com/206245c28478abc1363c5a2a4dc08bcb42ad2b7e16e45643849532f65655d236/ashleymcnamara/gophers"
+                    alt=""></div>
+              </a></figure>
+            <h2 id="philosophy">Philosophy</h2>
+            <p>Rather than a monolithic application, I've chosen this approach to enable me to use different
+              technologies where they are most appropriate. SvelteKit is my favorite web framework. While I know and can
+              use other stacks like <a href="https://nextjs.org">Next.js</a>, no other framework I have found offers the
+              simplicity of SvelteKit. </p>
+            <p>Similarly, there are many choices for getting content from your brain into a website, but the <a
+                href="https://ghost.org">Ghost editor</a> is my favorite. It's simple, powerful, and stays out of your
+              way. I have a Ghost site deployed in <a href="https://ghost.org/docs/jamstack/">private mode</a>, which
+              disables normal page serving but keeps the API and image services on.</p>
+            <p>The wildcard that makes this setup really powerful is <a href="https://encore.dev">Encore</a>, which
+              powers a URL shortener, the newsletter, social media integration and some lightweight content storage.
+              Page and article updates from Ghost automatically post via webhooks to my Encore backend so that the
+              content is available for uses outside the main website. I'm just getting started here, and really excited
+              about the possibilities. I have it set up as a suite of microservices that are easily composed into a
+              powerful engine, which I've started calling my Personal API. </p>
+            <p>The granularity of services allows me to compose lower-level services into powerful higher-level
+              functionality. For example, the newsletter service is a composite service that uses content,
+              subscriptions, and email. Rather than couple these services tightly I've found great flexibility in
+              creating lower level services that can be combined to build applications. Since <a
+                href="https://encore.dev/docs/develop/services-and-apis#calling-an-api">Encore abstracts away the
+                network layer in calls between services</a>, making a call from one service to another looks like a
+              function call rather than a web service request. This seems small in concept, but in practice it makes the
+              consumption and aggregation of small microservices feel like natural programming flow. I can't recommend
+              Encore strongly enough if you are building a backend in Go. It's even worth learning Go just to use
+              Encore.</p>
+          </section>
+
+
+        </article>
+      </main>
+
+
+      <section class="footer-cta ">
+        <div class="inner">
+          <h2>Sign up for more like this.</h2>
+          <a class="footer-cta-button" href="#/portal" data-portal>
+            <div class="footer-cta-input">Enter your email</div>
+            <span>Subscribe</span>
+          </a>
+        </div>
+      </section>
+
+
+
+
+      <aside class="read-more-wrap">
+        <div class="read-more inner">
+
+          <article class="post-card post ">
+
+            <a class="post-card-image-link" href="/the-popcast-episode-76/">
+              <img class="post-card-image" srcset="/content/images/size/w300/2022/05/popcast.png 300w,
+                        /content/images/size/w600/2022/05/popcast.png 600w,
+                        /content/images/size/w1000/2022/05/popcast.png 1000w,
+                        /content/images/size/w2000/2022/05/popcast.png 2000w" sizes="(max-width: 1000px) 400px, 800px"
+                src="/content/images/size/w600/2022/05/popcast.png" alt="The POPCAST Episode 76" loading="lazy" />
+            </a>
+
+            <div class="post-card-content">
+
+              <a class="post-card-content-link" href="/the-popcast-episode-76/">
+                <header class="post-card-header">
+                  <h2 class="post-card-title">The POPCAST Episode 76</h2>
+                </header>
+                <div class="post-card-excerpt">
+                  <p>I had a great time with Dan on this episode of The POPCAST.</p>
+                </div>
+              </a>
+
+              <footer class="post-card-meta">
+                <ul class="author-list">
+                  <li class="author-list-item">
+                    <a href="/author/brian/" class="static-avatar">
+                      <img class="author-profile-image" src="/content/images/size/w100/2022/05/logo-copy-1.png"
+                        alt="Brian Ketelsen" loading="lazy" />
+                    </a>
+                  </li>
+                </ul>
+                <div class="post-card-byline-content">
+                  <span class="post-card-byline-author"><a href="/author/brian/">Brian Ketelsen</a></span>
+                  <span class="post-card-byline-date"><time datetime="2021-07-12">Jul 12, 2021</time> <span
+                      class="bull">&bull;</span> 1 min read</span>
+                </div>
+              </footer>
+
+            </div>
+
+          </article>
+
+          <article class="post-card post ">
+
+            <a class="post-card-image-link" href="/list-the-azure-virtual-machines-available/">
+              <img class="post-card-image" srcset="/content/images/size/w300/2022/06/VS-CODE-GOPHER.png 300w,
+                        /content/images/size/w600/2022/06/VS-CODE-GOPHER.png 600w,
+                        /content/images/size/w1000/2022/06/VS-CODE-GOPHER.png 1000w,
+                        /content/images/size/w2000/2022/06/VS-CODE-GOPHER.png 2000w"
+                sizes="(max-width: 1000px) 400px, 800px" src="/content/images/size/w600/2022/06/VS-CODE-GOPHER.png"
+                alt="List the Azure Virtual Machines Available" loading="lazy" />
+            </a>
+
+            <div class="post-card-content">
+
+              <a class="post-card-content-link" href="/list-the-azure-virtual-machines-available/">
+                <header class="post-card-header">
+                  <h2 class="post-card-title">List the Azure Virtual Machines Available</h2>
+                </header>
+                <div class="post-card-excerpt">
+                  <p>Get a list of the different VM base images available on Azure.</p>
+                </div>
+              </a>
+
+              <footer class="post-card-meta">
+                <ul class="author-list">
+                  <li class="author-list-item">
+                    <a href="/author/brian/" class="static-avatar">
+                      <img class="author-profile-image" src="/content/images/size/w100/2022/05/logo-copy-1.png"
+                        alt="Brian Ketelsen" loading="lazy" />
+                    </a>
+                  </li>
+                </ul>
+                <div class="post-card-byline-content">
+                  <span class="post-card-byline-author"><a href="/author/brian/">Brian Ketelsen</a></span>
+                  <span class="post-card-byline-date"><time datetime="2020-08-25">Aug 25, 2020</time> <span
+                      class="bull">&bull;</span> 1 min read</span>
+                </div>
+              </footer>
+
+            </div>
+
+          </article>
+
+          <article class="post-card post ">
+
+            <a class="post-card-image-link" href="/bash-helpers-for-quick-installs/">
+              <img class="post-card-image" srcset="/content/images/size/w300/2022/05/4pPzKfd6BEg.jpg 300w,
+                        /content/images/size/w600/2022/05/4pPzKfd6BEg.jpg 600w,
+                        /content/images/size/w1000/2022/05/4pPzKfd6BEg.jpg 1000w,
+                        /content/images/size/w2000/2022/05/4pPzKfd6BEg.jpg 2000w"
+                sizes="(max-width: 1000px) 400px, 800px" src="/content/images/size/w600/2022/05/4pPzKfd6BEg.jpg"
+                alt="Bash Helpers for Quick Installs" loading="lazy" />
+            </a>
+
+            <div class="post-card-content">
+
+              <a class="post-card-content-link" href="/bash-helpers-for-quick-installs/">
+                <header class="post-card-header">
+                  <h2 class="post-card-title">Bash Helpers for Quick Installs</h2>
+                </header>
+                <div class="post-card-excerpt">
+                  <p>This bash setup is the latest evolution of my quest to make a new system install as fast as
+                    possible.</p>
+                </div>
+              </a>
+
+              <footer class="post-card-meta">
+                <ul class="author-list">
+                  <li class="author-list-item">
+                    <a href="/author/brian/" class="static-avatar">
+                      <img class="author-profile-image" src="/content/images/size/w100/2022/05/logo-copy-1.png"
+                        alt="Brian Ketelsen" loading="lazy" />
+                    </a>
+                  </li>
+                </ul>
+                <div class="post-card-byline-content">
+                  <span class="post-card-byline-author"><a href="/author/brian/">Brian Ketelsen</a></span>
+                  <span class="post-card-byline-date"><time datetime="2020-08-14">Aug 14, 2020</time> <span
+                      class="bull">&bull;</span> 2 min read</span>
+                </div>
+              </footer>
+
+            </div>
+
+          </article>
+        </div>
+      </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+      <div class="inner">
+        <section class="copyright"><a href="https://www.brian.dev">Brian Ketelsen</a> &copy; 2022</section>
+        <nav class="site-footer-nav">
+          <ul class="nav">
+            <li class="nav-now"><a href="https://www.brian.dev/now/">Now</a></li>
+            <li class="nav-uses"><a href="https://www.brian.dev/uses/">Uses</a></li>
+          </ul>
+
+        </nav>
+        <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+      </div>
+    </footer>
+
+  </div>
+
+
+
+
+</body>
+
+</html>

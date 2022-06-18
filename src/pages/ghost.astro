@@ -1,0 +1,50 @@
+---
+import Blog from "@layouts/blog";
+import Card from "@components/blog/strapicard";
+import Date from "@components/utilities/Date";
+import {getAllPages} from "@lib/ghost";
+import { Picture } from "astro-imagetools/components";
+const pages = await getAllPages();
+
+
+---
+
+<Blog title="Home" waves={true}>
+    <section class="py-16 bg-white md:py-24"
+    style="background-image: url('/flex-ui-assets/elements/pattern-white.svg'); background-position: center top;">
+    <div class="container px-4 mx-auto">
+      <div class="mx-auto mb-12 text-center md:max-w-2xl">
+        <div class="flex items-center justify-center">
+          <p class="inline-block font-medium text-blue-700">Brian</p>
+          <span class="mx-1 text-blue-500">•</span>
+          <p class="inline-block font-medium text-blue-700">
+            <Date date={post.published_at} />
+          </p>
+        </div>
+        <h2 class="mb-4 text-4xl font-bold leading-tight tracking-tighter md:text-5xl text-darkCoolGray-900">
+          {post.title}</h2>
+        <p class="mb-6 text-lg font-medium md:text-xl text-coolGray-500">{post.feature_image_caption}</p>
+
+      </div>
+      <div class="max-w-4xl mx-auto mb-10 overflow-hidden rounded-lg">
+        <figure class="flex justify-center">
+          <Picture
+            src={post.feature_image}
+            alt={post.feature_image_caption}
+            sizes="(min-width: 1024px) 1024px, 100vw"
+            />
+        </figure>
+
+      </div>
+      <div class="mx-auto md:max-w-3xl">
+
+        <div class="mt-5 prose prose-xl gh-content">
+          <div  set:html={post.html} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Blog>
+
+
+

@@ -1,23 +1,4 @@
----
-import Head from "@components/Head";
-import MainLayout from "@components/MainLayout";
-import "@fontsource/inter"
-
-const {title} = Astro.props;
-const {desc} = Astro.props;
-const {img} = Astro.props;
----
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <Head title={title} desc={desc} img={img} />
-  </head>
-<MainLayout>
-  <slot />
-</MainLayout>
-<script>
-  /* eslint-env browser */
+/* eslint-env browser */
 
 /**
  * Gallery card support
@@ -27,7 +8,7 @@ const {img} = Astro.props;
  * the display matches what is seen in the editor.
  */
 
-(function (window, document) {
+ (function (window, document) {
     var resizeImagesInGalleries = function resizeImagesInGalleries() {
         var images = document.querySelectorAll('.kg-gallery-image img');
         images.forEach(function (image) {
@@ -41,7 +22,3 @@ const {img} = Astro.props;
 
     document.addEventListener('DOMContentLoaded', resizeImagesInGalleries);
 })(window, document);
-
-</script>
-</html>
-
