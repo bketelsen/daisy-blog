@@ -1,6 +1,5 @@
 import { parse as urlParse } from 'url'
 import GhostContentAPI, { Params, PostOrPage, SettingsResponse, Pagination, PostsOrPages, Tag, Author } from '@tryghost/content-api'
-import { normalizePost } from '@lib/ghost-normalize'
 import { Node } from 'unist'
 import { collections as config } from './routesConfig'
 import { Collections } from '@lib/collections'
@@ -77,7 +76,7 @@ const postAndPageSlugOptions: Params = {
 const excludePostOrPageBySlug = () => {
  return ''
 }
-
+/*
 // helpers
 export const createNextImage = async (url?: string | null): Promise<NextImage | undefined> => {
   if (!url) return undefined
@@ -143,15 +142,14 @@ export async function getAllAuthors() {
   const authors = await api.authors.browse(tagAndAuthorFetchOptions)
   return await createNextProfileImages(authors)
 }
-
+*/
 export async function getAllPosts(props?: { limit: number }): Promise<GhostPostsOrPages> {
-  const posts = await api.posts.browse({
+ return await api.posts.browse({
     ...postAndPageFetchOptions,
     filter: excludePostOrPageBySlug(),
     ...(props && { ...props }),
   })
-  const results = await createNextProfileImagesFromPosts(posts)
-  return await createNextFeatureImages(results)
+
 }
 
 export async function getAllPostSlugs(): Promise<string[]> {
@@ -167,7 +165,7 @@ export async function getAllPages(props?: { limit: number }): Promise<GhostPosts
   })
 
 }
-
+/*
 // specific data by slug
 export async function getTagBySlug(slug: string): Promise<Tag> {
   return await api.tags.read({
@@ -247,6 +245,6 @@ export async function getPostsByTag(slug: string, limit?: number, excludeId?: st
   })
   return await createNextFeatureImages(posts)
 }
-
+*/
 // Collections
 export const collections = new Collections<PostOrPage>(config)
