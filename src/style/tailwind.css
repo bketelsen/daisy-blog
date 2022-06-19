@@ -126,7 +126,7 @@
 
   .prose .kg-bookmark-container,
   .kg-bookmark-container:hover {
-    @apply flex !no-underline rounded-md overflow-hidden bg-coolGray-200 dark:bg-coolGray-800 bg-opacity-40 text-coolGray-700 dark:text-coolGray-400;
+    @apply flex !no-underline rounded-md overflow-hidden bg-primary  bg-opacity-40 text-primary-content;
   }
 
   .prose .kg-bookmark-content {
@@ -158,11 +158,11 @@
   }
 
   .prose .kg-bookmark-metadata > span:nth-of-type(2) {
-    @apply font-normal text-coolGray-500;
+    @apply font-normal text-base-content;
   }
 
   .prose .kg-bookmark-metadata > span:nth-of-type(2):before {
-    @apply text-coolGray-700 dark:text-coolGray-300 mt-0 mr-2;
+    @apply text-base-content  mt-0 mr-2;
   }
 
   .prose .kg-bookmark-thumbnail {

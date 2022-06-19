@@ -15,14 +15,12 @@ export async function getStaticPaths({ rss }) {
 }
 
 const {page} = Astro.props;
-console.log(page)
 
 
 ---
 
 <Blog title="Home" waves={true}>
-    <section class="py-16 bg-white md:py-24"
-    style="background-image: url('/flex-ui-assets/elements/pattern-white.svg'); background-position: center top;">
+    <section class="py-16 md:py-24">
     <div class="container px-4 mx-auto">
       <div class="mx-auto mb-12 text-center md:max-w-2xl">
 
