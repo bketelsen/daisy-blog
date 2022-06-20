@@ -33,7 +33,7 @@ const {page} = Astro.props;
           {page.feature_image && (
             <Picture
               src={page.feature_image}
-              alt={page.feature_image_caption}
+              alt={page.feature_image_caption || page.title}
               sizes="(min-width: 1024px) 1024px, 100vw"
 
             />
