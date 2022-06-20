@@ -3,6 +3,7 @@ import '../style/tailwind.css'
 import '../style/prism.css'
 import '../style/prism-xonokai.css'
 
+
 const siteInfo = {
   siteName: 'Brian Ketelsen',
   siteDesc: 'This is a simple blog',
@@ -20,7 +21,7 @@ if(!desc) {
   desc = siteInfo.siteDesc
 }
 if(!img) {
-  img = Astro.site+'card.png'
+  img = './src/assets/brian.jpg'
 }
 ---
 
@@ -54,4 +55,6 @@ if(!img) {
 	<meta property="og:type" content="object" />
 	<meta property="og:url" content={Astro.site} />
 	<slot/>
+
+
 </head>
