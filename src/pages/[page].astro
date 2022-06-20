@@ -19,7 +19,7 @@ const {page} = Astro.props;
 
 ---
 
-<Blog title="Home" waves={true}>
+<Blog title={page.title} desc={page.excerpt} waves={true} img={page.feature_image ? page.feature_image : null}>
     <section class="py-16 md:py-24">
     <div class="container px-4 mx-auto">
       <div class="mx-auto mb-12 text-center md:max-w-2xl">

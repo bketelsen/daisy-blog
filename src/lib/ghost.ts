@@ -111,6 +111,7 @@ async function createNextProfileImagesFromPosts(nodes: BrowseResults<PostOrPage>
   const results = nodes.map((node, i) => ({ ...node, ...(authors[i] && { authors: authors[i] }) }))
   return Object.assign(results, { meta })
 }
+*/
 
 export async function getAllSettings(): Promise<GhostSettings> {
   //const cached = getCache<SettingsResponse>('settings')
@@ -118,21 +119,21 @@ export async function getAllSettings(): Promise<GhostSettings> {
   const settings = await api.settings.browse()
   settings.url = settings?.url?.replace(/\/$/, ``)
 
-  const iconImage = await createNextImage(settings.icon)
-  const logoImage = await createNextImage(settings.logo)
-  const coverImage = await createNextImage(settings.cover_image)
+  //const iconImage = await createNextImage(settings.icon)
+  //const logoImage = await createNextImage(settings.logo)
+  //const coverImage = await createNextImage(settings.cover_image)
 
   const result = {
     processEnv,
     ...settings,
-    ...(iconImage && { iconImage }),
-    ...(logoImage && { logoImage }),
-    ...(coverImage && { coverImage }),
+  //  ...(iconImage && { iconImage }),
+  //  ...(logoImage && { logoImage }),
+   // ...(coverImage && { coverImage }),
   }
   //setCache('settings', result)
   return result
 }
-
+/*
 export async function getAllTags(): Promise<GhostTags> {
   const tags = await api.tags.browse(tagAndAuthorFetchOptions)
   return await createNextFeatureImages(tags)
