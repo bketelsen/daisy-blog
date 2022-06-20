@@ -1,7 +1,6 @@
 import { renderMarkdown } from '@astrojs/markdown-remark';
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
 import { astroImageTools } from "astro-imagetools";
 import svelte from "@astrojs/svelte";
 
@@ -24,5 +23,5 @@ export default defineConfig(
 		},
 		site: 'https://brian.dev',
 
-		integrations: [astroImageTools,svelte(),sitemap(),tailwind()]
+		integrations: [astroImageTools, svelte(), sitemap()]
 	});

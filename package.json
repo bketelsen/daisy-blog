@@ -13,9 +13,11 @@
     "@astrojs/svelte": "^0.1.4",
     "@fontsource/inter": "^4.5.11",
     "@tailwindcss/typography": "^0.5.2",
+    "@types/tryghost__content-api": "^1.3.11",
     "astro": "^1.0.0-beta.42",
     "autoprefixer": "^10.4.2",
     "daisyui": "^2.15.3",
+    "postcss": "^8.4.14",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.0.1",
     "shiki": "^0.10.1",
@@ -25,9 +27,10 @@
   "dependencies": {
     "@astrojs/tailwind": "^0.2.1",
     "@sarissa/pagination": "^1.0.3",
-    "astro-eleventy-img": "^0.3.2",
-    "astro-icon": "^0.7.1",
+    "@tailwindcss/line-clamp": "^0.4.0",
+    "@tryghost/content-api": "^1.11.0",
     "astro-imagetools": "^0.6.9",
-    "gmeta": "^1.3.1"
+    "gmeta": "^1.3.1",
+    "sharp": "^0.30.6"
   }
 }

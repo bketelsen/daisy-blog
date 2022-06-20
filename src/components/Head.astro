@@ -1,4 +1,8 @@
 ---
+import '../style/tailwind.css'
+import '../style/prism.css'
+import '../style/prism-xonokai.css'
+
 const siteInfo = {
   siteName: 'Brian Ketelsen',
   siteDesc: 'This is a simple blog',
@@ -7,17 +11,19 @@ const siteInfo = {
 let {title} = Astro.props;
 let {desc} = Astro.props;
 let {img} = Astro.props;
-let {twitterUsername} = Astro.props;
+let {settings} = Astro.props;
+
 
 if(!title) {
-  title = siteInfo.siteName
+  title = settings.title;
 }
 if(!desc) {
-  desc = siteInfo.siteDesc
+  desc = settings.description
 }
 if(!img) {
-  img = Astro.site+'card.png'
+  img = settings.twitter_image
 }
+
 ---
 
 <head>
@@ -39,8 +45,8 @@ if(!img) {
 	{desc && <meta name="twitter:description" content={desc} />}
 	<meta name="twitter:image" content={img} />
 	{title && <meta name="twitter:image:alt" content={title} />}
-	{twitterUsername && <meta name="twitter:site" content={twitterUsername}/>}
-	{twitterUsername && <meta name="twitter:creator" content={twitterUsername}/>}
+<meta name="twitter:site" content={settings.twitter}/>
+<meta name="twitter:creator" content={settings.twitter}/>
 	<!-- og -->
 	{title && <meta property="og:title" content={title} />}
 	{desc && <meta property="og:description" content={desc} />}
@@ -50,4 +56,6 @@ if(!img) {
 	<meta property="og:type" content="object" />
 	<meta property="og:url" content={Astro.site} />
 	<slot/>
+
+
 </head>

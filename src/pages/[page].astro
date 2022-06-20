@@ -1,0 +1,56 @@
+---
+import Blog from "@layouts/blog";
+import Date from "@components/utilities/Date";
+import {getAllPages} from "@lib/ghost";
+import { Picture } from "astro-imagetools/components";
+
+export async function getStaticPaths({ rss }) {
+  const pages = await getAllPages();
+  return pages.map((page) => {
+    return {
+      params: { page: page.slug },
+      props: { page }
+    };
+  })
+}
+
+const {page} = Astro.props;
+
+
+---
+
+<Blog title={page.title} desc={page.excerpt} waves={true} img={page.feature_image ? page.feature_image : null}>
+    <section class="py-16 md:py-24">
+    <div class="container px-4 mx-auto">
+      <div class="mx-auto mb-12 text-center md:max-w-2xl">
+
+        <h2 class="mb-4 text-4xl font-bold leading-tight tracking-tighter md:text-5xl text-darkCoolGray-900">
+          {page.title}</h2>
+
+      </div>
+      <div class="max-w-4xl mx-auto mb-10 overflow-hidden rounded-lg">
+        <figure class="flex justify-center">
+          {page.feature_image && (
+            <Picture
+              src={page.feature_image}
+              alt={page.feature_image_caption}
+              sizes="(min-width: 1024px) 1024px, 100vw"
+
+            />
+          )}
+
+        </figure>
+
+      </div>
+      <div class="mx-auto md:max-w-3xl">
+
+        <div class="mt-5 prose prose-xl gh-content">
+          <div  set:html={page.html} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Blog>
+
+
+
