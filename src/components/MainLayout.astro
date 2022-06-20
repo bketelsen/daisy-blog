@@ -17,7 +17,7 @@ const {settings} = Astro.props;
         </section>
         <slot />
         <WavesBottom />
-        <Footer />
+        <Footer settings={settings}/>
     </div>
 </body>
 <script src="../assets/js/prism.js"></script>
