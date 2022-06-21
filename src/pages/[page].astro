@@ -1,7 +1,7 @@
 ---
 import Blog from "@layouts/blog";
 import Date from "@components/utilities/Date";
-import {getAllPages} from "@lib/ghost";
+import { getAllPages } from "@lib/ghost";
 import { Picture } from "astro-imagetools/components";
 
 export async function getStaticPaths({ rss }) {
@@ -14,43 +14,34 @@ export async function getStaticPaths({ rss }) {
   })
 }
 
-const {page} = Astro.props;
-
+const { page } = Astro.props;
 
 ---
 
 <Blog title={page.title} desc={page.excerpt} waves={true} img={page.feature_image ? page.feature_image : null}>
-    <section class="py-16 md:py-24">
+  <section class="py-16 md:py-24">
     <div class="container px-4 mx-auto">
       <div class="mx-auto mb-12 text-center md:max-w-2xl">
-
         <h2 class="mb-4 text-4xl font-bold leading-tight tracking-tighter md:text-5xl text-darkCoolGray-900">
           {page.title}</h2>
-
       </div>
       <div class="max-w-4xl mx-auto mb-10 overflow-hidden rounded-lg">
-        <figure class="flex justify-center">
+        <figure class="grid grid-cols-1 justify-items-center">
           {page.feature_image && (
-            <Picture
-              src={page.feature_image}
-              alt={page.feature_image_caption || page.title}
-              sizes="(min-width: 1024px) 1024px, 100vw"
-
-            />
+          <Picture src={page.feature_image} alt={page.feature_image_caption || page.title}
+            sizes="(min-width: 1024px) 1024px, 100vw" />
           )}
-
+          <div class="mt-2 text-sm">{page.feature_image_caption || page.title}</div>
         </figure>
-
       </div>
       <div class="mx-auto md:max-w-3xl">
-
         <div class="mt-5 prose prose-xl gh-content">
-          <div  set:html={page.html} />
+          <div set:html={page.html} />
+          <p class="inline-block text-sm font-medium text-neutral-content">
+            Last Update: <Date date={page.updated_at} />
+          </p>
         </div>
       </div>
     </div>
   </section>
 </Blog>
-
-
-
