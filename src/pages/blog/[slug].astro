@@ -24,23 +24,24 @@ const { post } = Astro.props;
     <div class="container px-4 mx-auto">
       <div class="mx-auto mb-12 text-center md:max-w-2xl">
         <div class="flex items-center justify-center">
-          <p class="inline-block font-medium text-neutral-content">{post.primary_author && post.primary_author.name}</p>
-          <span class="mx-1 text-accent">•</span>
-          <p class="inline-block font-medium text-neutral-content">
+          <p class="inline-block font-medium text-darkCoolGray-500">
             <Date date={post.published_at} />
+          </p>
+          <span class="mx-1 text-accent">•</span>
+          <p class="inline-block font-medium text-darkCoolGray-500">{post.primary_author && post.primary_author.name}
           </p>
         </div>
         <h2 class="mb-4 text-4xl font-bold leading-tight tracking-tighter md:text-5xl text-darkCoolGray-900">
           {post.title}</h2>
-        <p class="mb-6 text-lg font-medium md:text-xl text-base-content">Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit.</p>
-        <div
-          class="uppercase badge badge-primary">
+        {post.excerpt && <p class="mb-6 text-lg font-medium md:text-xl text-base-content">{post.excerpt}</p>}
+
+        <div class="uppercase badge badge-primary">
           {post.primary_tag? post.primary_tag.name : ""}</div>
       </div>
       <div class="max-w-4xl mx-auto mb-10 overflow-hidden rounded-lg">
         <figure class="flex justify-center">
-          {post.feature_image ? <Picture src={post.feature_image} alt={post.title} /> : null}
+          {post.feature_image ?
+          <Picture src={post.feature_image} alt={post.title} /> : null}
 
         </figure>
 
@@ -49,7 +50,7 @@ const { post } = Astro.props;
         <p class="pb-10 mb-8 text-lg font-medium border-b md:text-xl text-base-content border-neutral">{post.summary}
         </p>
         <div class="mt-5 prose prose-xl gh-content">
-          <div  set:html={post.html} />
+          <div set:html={post.html} />
         </div>
       </div>
     </div>

@@ -1,0 +1,43 @@
+---
+import { nav } from "@data/nav"
+import brianDark from '@assets/brian-dark.svg'
+let { settings } = Astro.props;
+
+---
+
+<div class="bg-accent">
+  <div class="max-w-4xl mx-auto bg-accent">
+    <div class="navbar bg-accent">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <label tabindex={0} class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+          </label>
+          <ul tabindex={0} class="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+            {settings.navigation.map((item: { url: string | URL; label: string; }) => (
+            <li>
+              <a href={item.url}>{item.label}</a>
+            </li>
+            ))}
+          </ul>
+        </div>
+        <a class="block max-w-max" href="/">
+          <img class="h-10" src={brianDark} alt="Brian Ketelsen">
+        </a>
+      </div>
+      <div class="hidden navbar-end lg:flex">
+        <ul class="p-0 menu menu-horizontal">
+          {settings.navigation.map((item: { url: string | URL; label: string; }) => (
+          <li>
+            <a href={item.url}>{item.label}</a>
+          </li>
+          ))}
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
