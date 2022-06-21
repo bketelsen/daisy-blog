@@ -1,13 +1,11 @@
 ---
-import { MY_YOUTUBE, MY_TWITTER_HANDLE, REPO_URL } from '@data/siteConfig';
 import brianDark from '../assets/brian-dark.svg'
-let {settings} = Astro.props;
+let { settings } = Astro.props;
 
 ---
 
 <section class="bg-white">
-
-  <div class="overflow-hidden bg-accent" >
+  <div class="overflow-hidden bg-accent">
     <div class="container max-w-5xl px-4 mx-auto">
       <div class="flex flex-wrap pt-24 pb-12 -mx-4 lg:items-center">
         <div class="w-full px-4 md:w-2/3">
@@ -16,7 +14,8 @@ let {settings} = Astro.props;
           </a>
           <div class="flex flex-wrap mb-12 -mx-3 md:mb-0 md:-mx-6">
             {settings.secondary_navigation.map(item => (
-            <div class="w-full p-3 md:w-auto md:py-0 md:px-6"><a class="btn btn-outline btn-accent-content btn-sm" href={item.url}>{item.label}</a></div>
+            <div class="w-full p-3 md:w-auto md:py-0 md:px-6"><a class="btn btn-outline btn-accent-content btn-sm"
+                href={item.url}>{item.label}</a></div>
             ))}
 
           </div>
@@ -39,9 +38,12 @@ let {settings} = Astro.props;
         </div>
         <div class="w-full px-4 md:w-1/2">
           <div class="flex flex-wrap justify-end -mx-3 md:-mx-4">
-  {/*         <div class="w-full p-3 md:w-auto md:py-0 md:px-4"><a class="btn btn-outline btn-accent-content btn-sm" href="#">Terms</a></div>
-            <div class="w-full p-3 md:w-auto md:py-0 md:px-4"><a class="btn btn-outline btn-accent-content btn-sm" href="#">Privacy</a></div>
-            <div class="w-full p-3 md:w-auto md:py-0 md:px-4"><a class="btn btn-outline btn-accent-content btn-sm" href="#">Cookies</a></div>
+            {/* <div class="w-full p-3 md:w-auto md:py-0 md:px-4"><a class="btn btn-outline btn-accent-content btn-sm"
+                href="#">Terms</a></div>
+            <div class="w-full p-3 md:w-auto md:py-0 md:px-4"><a class="btn btn-outline btn-accent-content btn-sm"
+                href="#">Privacy</a></div>
+            <div class="w-full p-3 md:w-auto md:py-0 md:px-4"><a class="btn btn-outline btn-accent-content btn-sm"
+                href="#">Cookies</a></div>
             */}
           </div>
         </div>
