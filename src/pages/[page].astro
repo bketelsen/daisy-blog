@@ -35,7 +35,7 @@ const { page } = Astro.props;
         </figure>
       </div>
       <div class="mx-auto md:max-w-3xl">
-        <div class="mt-5 prose prose-xl gh-content">
+        <div class="mt-5 prose prose-xl prose-ghost prose-ghost-dark prose-ghost-lg gh-content">
           <div set:html={page.html} />
           <p class="inline-block text-sm font-medium text-neutral-content">
             Last Update: <Date date={page.updated_at} />

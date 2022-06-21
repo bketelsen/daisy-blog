@@ -40,17 +40,16 @@ const { post } = Astro.props;
           {post.primary_tag? post.primary_tag.name : ""}</div>
       </div>
       <div class="max-w-4xl mx-auto mb-10 overflow-hidden rounded-lg">
-        <figure class="flex justify-center">
-          {post.feature_image ?
+        <figure class="grid grid-cols-1 rounded-lg justify-items-center">          {post.feature_image ?
           <Picture src={post.feature_image} alt={post.title} /> : null}
-
+          <div class="mt-2 text-sm">{post.feature_image_caption || ""}</div>
         </figure>
 
       </div>
       <div class="mx-auto md:max-w-3xl">
         <p class="pb-10 mb-8 text-lg font-medium border-b md:text-xl text-base-content border-neutral">{post.summary}
         </p>
-        <div class="mt-5 prose prose-xl gh-content">
+        <div class="mt-5 prose prose-xl prose-ghost prose-ghost-lg prose-ghost-dark gh-content">
           <div set:html={post.html} />
         </div>
       </div>
