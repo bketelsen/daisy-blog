@@ -17,10 +17,10 @@ export async function getStaticPaths({ rss }) {
 
 // Destructure to get both `Astro.props.post` and `Astro.props.post.Content`
 const { post } = Astro.props;
-const ogimage = `https://og-sooty.vercel.app/brian.dev/blog/${post.slug}`
+
 ---
 
-<Blog waves={true} title={post.title} desc={post.excerpt} img={ogimage}>
+<Blog waves={true} title={post.title} desc={post.excerpt} img={post.feature_image ? post.feature_image : null}>
   <section class="py-16 md:py-24">
     <div class="container px-4 mx-auto">
       <div class="mx-auto mb-12 text-center md:max-w-2xl">
