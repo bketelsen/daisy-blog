@@ -26,11 +26,11 @@ const { post: { Content }, post } = Astro.props;
 		<div class="py-6 prose lg:prose-lg">
 			{post.img && post.imgWidth && post.imgHeight ?
 				<figure class="flex justify-center">
-					<img src={post.img} alt={post.title} width={post.imgWidth} height={post.imgHeight} class="rounded bg-base-200" />
+					<Img src={post.img} alt={post.title} width={post.imgWidth} height={post.imgHeight}  attributes={{style: {class:"rounded bg-base-200"}}} />
 				</figure>
 				: post.img &&
 				<figure class="flex justify-center">
-					<img src={post.img} alt={post.title} class="rounded bg-base-200" />
+					<Img src={post.img} alt={post.title} attributes={{style: {class:"rounded bg-base-200"}}} />
 				</figure>
 			}
 			<span class="mb-2 uppercase badge badge-success">Article</span>
