@@ -1,53 +1,14 @@
----
-import brianDark from '../assets/brian-dark.svg'
-let { settings } = Astro.props;
-
----
-
-<section class="bg-white">
-  <div class="overflow-hidden bg-accent">
-    <div class="container max-w-5xl px-4 mx-auto">
-      <div class="flex flex-wrap pt-24 pb-12 -mx-4 lg:items-center">
-        <div class="w-full px-4 md:w-2/3">
-          <a class="block mb-12 max-w-max" href="#">
-            <img class="h-10" src={brianDark} alt="Brian Ketelsen">
-          </a>
-          <div class="flex flex-wrap mb-12 -mx-3 md:mb-0 md:-mx-6">
-            {settings.secondary_navigation.map(item => (
-            <div class="w-full p-3 md:w-auto md:py-0 md:px-6"><a class="btn btn-outline btn-accent-content btn-sm"
-                href={item.url}>{item.label}</a></div>
-            ))}
-
-          </div>
-        </div>
-        <div class="w-full px-4 md:w-1/3">
-          <div class="flex flex-wrap">
-            <div class="w-full py-1 lg:flex-1 lg:py-0 lg:mr-3">
-              <input type="text" class="w-full max-w-xs input input-bordered input-secondary" placeholder="Your email">
-            </div>
-            <div class="w-full py-1 lg:w-auto lg:py-0"><button class="btn btn-primary" href="#">Subscribe</button></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="border-b border-primary-accent"></div>
-    <div class="container max-w-5xl px-4 mx-auto">
-      <div class="flex flex-wrap items-center py-12 -mx-4 md:pb-24">
-        <div class="w-full px-4 md:w-1/2">
-          <p class="mb-3 font-medium md:mb-0 text-accent-content">© 2022 Brian Ketelsen. All rights reserved.</p>
-        </div>
-        <div class="w-full px-4 md:w-1/2">
-          <div class="flex flex-wrap justify-end -mx-3 md:-mx-4">
-            {/* <div class="w-full p-3 md:w-auto md:py-0 md:px-4"><a class="btn btn-outline btn-accent-content btn-sm"
-                href="#">Terms</a></div>
-            <div class="w-full p-3 md:w-auto md:py-0 md:px-4"><a class="btn btn-outline btn-accent-content btn-sm"
-                href="#">Privacy</a></div>
-            <div class="w-full p-3 md:w-auto md:py-0 md:px-4"><a class="btn btn-outline btn-accent-content btn-sm"
-                href="#">Cookies</a></div>
-            */}
-          </div>
-        </div>
-      </div>
-    </div>
+<footer class="p-4 footer footer-center">
+  <div>
+    <p class="text-xs text-base-content/70">
+      &copy; {(new Date()).getFullYear()} –
+      <a class="link" href="https://github.com/saadeghi/daisy-blog" target="_blank">
+        Daisy Blog
+      </a>
+      Theme, Powered by
+      <a class="link" href="https://astro.build/" target="_blank">
+        Astro
+      </a>
+    </p>
   </div>
-</section>
+</footer>

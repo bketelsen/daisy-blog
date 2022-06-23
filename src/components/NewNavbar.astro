@@ -1,43 +1,33 @@
 ---
 import { nav } from "@data/nav"
-import brianDark from '@assets/brian-dark.svg'
-let { settings } = Astro.props;
-
+import brianDark from '../assets/brian-dark.svg'
 ---
-
-<div class="bg-accent">
-  <div class="max-w-4xl mx-auto bg-accent">
-    <div class="navbar bg-accent">
-      <div class="navbar-start">
-        <div class="dropdown">
-          <label tabindex={0} class="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
-            </svg>
-          </label>
-          <ul tabindex={0} class="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-            {settings.navigation.map((item: { url: string | URL; label: string; }) => (
-            <li>
-              <a href={item.url}>{item.label}</a>
-            </li>
-            ))}
-          </ul>
-        </div>
-        <a class="block max-w-max" href="/">
-          <img class="h-10" src={brianDark} alt="Brian Ketelsen">
-        </a>
-      </div>
-      <div class="hidden navbar-end lg:flex">
-        <ul class="p-0 menu menu-horizontal">
-          {settings.navigation.map((item: { url: string | URL; label: string; }) => (
+<div class="navbar bg-base-100">
+  <div class="flex-1">
+    <a href="/" class="flex items-center gap-4 p-2 font-bold hover:underline md:text-2xl">
+      <img height="40" width="128" class="h-10" src={brianDark} alt="Brian Ketelsen">
+ </a>
+  </div>
+  <div class="flex-none">
+    <ul class="hidden p-0 menu menu-horizontal md:flex">
+      {nav.map(item => (
+        <li>
+          <a href={item.slug}>{item.title}</a>
+        </li>
+      ))}
+    </ul>
+    <slot/>
+    <div class="dropdown dropdown-end md:hidden">
+      <label tabindex={0} class="btn btn-ghost btn-square">
+        <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </label>
+      <ul tabindex={0} class="p-2 dropdown-content menu bg-base-200 rounded-box w-52 menu-compact">
+        {nav.map(item => (
           <li>
-            <a href={item.url}>{item.label}</a>
+            <a href={item.slug}>{item.title}</a>
           </li>
-          ))}
-
-        </ul>
-      </div>
+        ))}
+      </ul>
     </div>
   </div>
 </div>

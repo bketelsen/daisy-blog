@@ -1,13 +1,16 @@
 ---
 import Blog from "@layouts/blog";
 import Date from "@components/utilities/Date";
-import { getAllPosts } from "@lib/ghost";
-import { Picture } from "astro-imagetools/components";
+import { Img } from "astro-imagetools/components";
 
+import { published } from "@data/post"
+import Prose from "@components/prose";
 
-export async function getStaticPaths({ rss }) {
-  const allposts = await getAllPosts();
-  return allposts.map((post) => {
+export async function getStaticPaths() {
+  const markdownFiles = await Astro.glob('../../content/blog/**/*.md');
+  const posts = published(markdownFiles);
+
+  return posts.map((post) => {
     return {
       params: { slug: post.slug },
       props: { post }
@@ -16,43 +19,30 @@ export async function getStaticPaths({ rss }) {
 }
 
 // Destructure to get both `Astro.props.post` and `Astro.props.post.Content`
-const { post } = Astro.props;
-
+const { post: { Content }, post } = Astro.props;
 ---
-
-<Blog waves={true} title={post.title} desc={post.excerpt} img={post.feature_image ? post.feature_image : null}>
-  <section class="py-16 md:py-24">
-    <div class="container px-4 mx-auto">
-      <div class="mx-auto mb-12 text-center md:max-w-2xl">
-        <div class="flex items-center justify-center">
-          <p class="inline-block font-medium text-darkCoolGray-500">
-            <Date date={post.published_at} />
-          </p>
-          <span class="mx-1 text-accent">•</span>
-          <p class="inline-block font-medium text-darkCoolGray-500">{post.primary_author && post.primary_author.name}
-          </p>
-        </div>
-        <h2 class="mb-4 text-4xl font-bold leading-tight tracking-tighter md:text-5xl text-darkCoolGray-900">
-          {post.title}</h2>
-        {post.excerpt && <p class="mb-6 text-lg font-medium md:text-xl text-base-content">{post.excerpt}</p>}
-
-        <div class="uppercase badge badge-primary">
-          {post.primary_tag? post.primary_tag.name : ""}</div>
-      </div>
-      <div class="max-w-4xl mx-auto mb-10 overflow-hidden rounded-lg">
-        <figure class="grid grid-cols-1 rounded-lg justify-items-center">          {post.feature_image ?
-          <Picture src={post.feature_image} alt={post.title} /> : null}
-          <div class="mt-2 text-sm">{post.feature_image_caption || ""}</div>
-        </figure>
-
-      </div>
-      <div class="mx-auto md:max-w-3xl">
-        <p class="pb-10 mb-8 text-lg font-medium border-b md:text-xl text-base-content border-neutral">{post.summary}
-        </p>
-        <div class="mt-5 prose prose-xl prose-ghost prose-ghost-lg prose-ghost-dark gh-content">
-          <div set:html={post.html} />
-        </div>
-      </div>
-    </div>
-  </section>
+<Blog title={post.title} desc={post.desc} img={post.img ? post.img : null}>
+  <div class="flex justify-center">
+		<div class="py-6 prose lg:prose-lg">
+			{post.img && post.imgWidth && post.imgHeight ?
+				<figure class="flex justify-center">
+					<img src={post.img} alt={post.title} width={post.imgWidth} height={post.imgHeight} class="rounded bg-base-200" />
+				</figure>
+				: post.img &&
+				<figure class="flex justify-center">
+					<img src={post.img} alt={post.title} class="rounded bg-base-200" />
+				</figure>
+			}
+			<span class="mb-2 uppercase badge badge-success">Article</span>
+			<h1 class="font-title">{post.title}</h1>
+			<div class="flex gap-3">
+				<span class="badge badge-primary">
+					<Date date={post.date}/>
+				</span>
+			</div>
+			<Prose>
+				<Content />
+			</Prose>
+		</div>
+	</div>
 </Blog>

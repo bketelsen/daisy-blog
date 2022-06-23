@@ -2,8 +2,6 @@ module.exports = {
   content: ['./src/**/*.{astro,html,svelte,vue,js,ts,jsx,tsx}'],
   plugins: [
     require('@tailwindcss/typography'),
-    require("@tailwindcss/line-clamp"),
-    require("@deck9/tailwindcss-ghost-typography"),
     require('daisyui'),
   ],
   theme: {
@@ -25,7 +23,7 @@ module.exports = {
           ...require("daisyui/src/colors/themes")["[data-theme=coffee]"],
           "base-content": "#f8f1e7",
         },
-      },
-    ],
+      }, 'winter',
+    ]
   }
 }

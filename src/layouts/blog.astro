@@ -1,51 +1,34 @@
 ---
-import Head from "@components/Head";
-import MainLayout from "@components/MainLayout";
+import "@style/tailwind.css"
+import Navbar from "@components/Navbar";
+import Footer from "@components/Footer";
+import ThemeChange from "@components/ThemeChange";
+import Head from '@components/Head'
 import "@fontsource/inter"
-import { getAllSettings } from '@lib/ghost'
-
-const settings = await getAllSettings();
-
-
 const {title} = Astro.props;
 const {desc} = Astro.props;
 const {img} = Astro.props;
 ---
-
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <Head title={title} desc={desc} img={img} settings={settings}/>
-  </head>
-<MainLayout settings={settings}>
-  <slot />
-</MainLayout>
-<script>
-  /* eslint-env browser */
-
-/**
- * Gallery card support
- * Used on any individual post/page
- *
- * Detects when a gallery card has been used and applies sizing to make sure
- * the display matches what is seen in the editor.
- */
-
-(function (window, document) {
-    var resizeImagesInGalleries = function resizeImagesInGalleries() {
-        var images = document.querySelectorAll('.kg-gallery-image img');
-        images.forEach(function (image) {
-            var container = image.closest('.kg-gallery-image');
-            var width = image.attributes.width.value;
-            var height = image.attributes.height.value;
-            var ratio = width / height;
-            container.style.flex = ratio + ' 1 0%';
-        });
-    };
-
-    document.addEventListener('DOMContentLoaded', resizeImagesInGalleries);
-})(window, document);
-
-</script>
+<Head
+	title={title}
+	desc={desc}
+	img={img}
+>
+	<script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</Head>
+<body class="antialiased flex flex-col font-body items-center h-screen h-[100svh]">
+	<div class="flex-grow w-full max-w-3xl">
+		<Navbar>
+			<ThemeChange />
+		</Navbar>
+		<div class="p-4 pb-10">
+			<slot />
+		</div>
+	</div>
+	<Footer />
+</body>
 </html>
-
