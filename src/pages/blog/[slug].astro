@@ -4,7 +4,7 @@ import Date from "@components/utilities/Date";
 import { Img } from "astro-imagetools/components";
 
 import { published } from "@data/post"
-import Prose from "@components/prose";
+import Prose from "@components/Prose";
 
 export async function getStaticPaths() {
   const markdownFiles = await Astro.glob('../../content/blog/**/*.md');
