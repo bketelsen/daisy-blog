@@ -1,12 +1,15 @@
 ---
 import Blog from "@layouts/blog";
 import Date from "@components/utilities/Date";
-import { getAllPages } from "@lib/ghost";
 import { Picture } from "astro-imagetools/components";
 
-export async function getStaticPaths({ rss }) {
-  const pages = await getAllPages();
-  return pages.map((page) => {
+import { published } from "@data/page"
+
+export async function getStaticPaths() {
+  const markdownFiles = await Astro.glob('../content/page/**/*.md');
+  const posts = published(markdownFiles);
+
+  return posts.map((page) => {
     return {
       params: { page: page.slug },
       props: { page }
@@ -14,12 +17,13 @@ export async function getStaticPaths({ rss }) {
   })
 }
 
-const { page } = Astro.props;
+// Destructure to get both `Astro.props.post` and `Astro.props.post.Content`
+const { page: { Content }, page } = Astro.props;
 
 ---
 
 <Blog title={page.title} desc={page.excerpt} waves={true} img={page.feature_image ? page.feature_image : null}>
-  <section class="py-16 md:py-24">
+  <section class="px-2 py-16 md:py-24">
     <div class="container px-4 mx-auto">
       <div class="mx-auto mb-12 text-center md:max-w-2xl">
         <h2 class="mb-4 text-4xl font-bold leading-tight tracking-tighter md:text-5xl text-darkCoolGray-900">
@@ -30,16 +34,14 @@ const { page } = Astro.props;
           {page.feature_image && (
           <Picture src={page.feature_image} alt={page.feature_image_caption || page.title}
             sizes="(min-width: 1024px) 1024px, 100vw" />
-          )}
+
           <div class="mt-2 text-sm">{page.feature_image_caption || page.title}</div>
+          )}
         </figure>
       </div>
       <div class="mx-auto md:max-w-3xl">
-        <div class="mt-5 prose prose-xl prose-ghost prose-ghost-dark prose-ghost-lg gh-content">
-          <div set:html={page.html} />
-          <p class="inline-block text-sm font-medium text-neutral-content">
-            Last Update: <Date date={page.updated_at} />
-          </p>
+        <div class="mt-5 prose prose-xl gh-content">
+          <Content />
         </div>
       </div>
     </div>

@@ -1,10 +1,10 @@
 ---
-import { getAllPosts } from "@lib/ghost";
+import { published } from "@data/post"
 import Blog from "@layouts/shuffle";
 import Card from "@components/blog/card";
 
-const allposts = await getAllPosts();
-const posts = allposts.slice(0, 3);
+const markdownFiles = await Astro.glob('../content/blog/**/*.md')
+const posts = published( markdownFiles ).slice(0, 3);
 ---
 
 <Blog title="Home" waves={true}>

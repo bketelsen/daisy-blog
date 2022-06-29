@@ -1,10 +1,10 @@
 ---
+import { published } from "@data/post"
 import Blog from "@layouts/blog";
 import Card from "@components/blog/card";
-import { getAllPosts } from "@lib/ghost";
 
-const allposts = await getAllPosts();
-
+const markdownFiles = await Astro.glob('../../content/blog/**/*.md')
+const posts = published( markdownFiles );
 ---
 
 <Blog title="Blog">
@@ -21,7 +21,7 @@ const allposts = await getAllPosts();
 
       </div>
       <div class="flex flex-wrap -mx-4">
-        {allposts.map((p) =>
+        {posts.map((p) =>
         <Card post={p} />
         )}
       </div>

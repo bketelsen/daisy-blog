@@ -1,16 +1,15 @@
 ---
-import type { GhostPostOrPage } from '@lib/ghost';
 import Date from "@components/utilities/Date";
 import { Img } from "astro-imagetools/components";
-const post: GhostPostOrPage = Astro.props.post
-const background = post.feature_image ? "bg-base-100" : "bg-primary"
+const {post} =   Astro.props
+const background = post.img ? "bg-base-100" : "bg-primary"
 ---
 <div class="px-1 hover:shadow-2xl card md:w-1/2 lg:w-1/3">
-  <a href="/blog/${post.slug}">
+  <a href= {'/blog/' + post.slug}>
 
-  {post.feature_image && (
+  {post.img && (
     <Img
-    src={post.feature_image}
+    src={post.img}
     alt={post.title}
     />
     )}
@@ -18,7 +17,7 @@ const background = post.feature_image ? "bg-base-100" : "bg-primary"
     <h2 class="card-title font-title">{post.title}</h2>
     <p>{post.excerpt}</p>
     <div class="justify-end card-actions">
-      <div class="mt-2 uppercase badge badge-info">{post.primary_tag.name}</div>
+      <div class="mt-2 uppercase badge badge-info">{post.category}</div>
 
     </div>
   </div>

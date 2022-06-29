@@ -1,22 +1,16 @@
 ---
 import Footer from "@components/Footer";
 import Navbar from "@components/NewNavbar";
-import WavesBottom from "./WavesBottom.astro";
-import WavesTop from "./WavesTop.astro";
 
 const { settings } = Astro.props;
 ---
 
-<body class="antialiased bg-base-100 text-base-content font-body" data-prismjs-copy="Copy to clipboard">
-    <div class="">
-        <section class="relative bg-base-100">
-            <Navbar settings={settings} />
+<body class="antialiased font-body flex flex-col items-center h-screen h-[100svh]">
+	<div class="flex-grow w-full max-w-3xl">
+        <Navbar settings={settings} />
             <slot name="hero" />
-            <WavesTop />
-        </section>
         <slot />
-        <WavesBottom />
         <Footer settings={settings} />
-    </div>
-</body>
+        </div>
+ </body>
 <script src="../assets/js/prism.js"></script>

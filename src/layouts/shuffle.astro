@@ -1,12 +1,12 @@
 ---
+import '../style/tailwind.css';
 
 import Features from "@components/Features";
 import Head from "@components/Head";
 import MainLayout from "@components/MainLayout";
 import "@fontsource/inter"
-import { getAllSettings } from '@lib/ghost'
 
-const settings = await getAllSettings();
+const settings = {}
 const {title} = Astro.props;
 const {desc} = Astro.props;
 const {img} = Astro.props;
@@ -15,9 +15,9 @@ const {img} = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
     <Head title={title} desc={desc} img={img} settings={settings}/>
-  </head>
+
 <MainLayout settings={settings}>
   <Features title="Brian Ketelsen"
   subtitle="I'm a developer advocate, keynote speaker, author, open source practitioner. Welcome to my home on the web."
