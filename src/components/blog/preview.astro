@@ -1,17 +1,18 @@
 ---
 import type { Post } from '@data/post';
+import { Img } from 'astro-imagetools/components';
 const post: Post = Astro.props.post
 ---
 
 <div class="flex flex-row-reverse items-start gap-6 py-6 md:gap-10">
 	{post.img &&
-		<a href={`/${post.slug}`} class="shrink-0">
-			<img src={post.img} alt={post.title} width="160" height="160" class="object-cover w-20 h-20 rounded md:w-40 md:h-40 bg-base-200" />
+		<a href={`/blog/${post.slug}`} class="shrink-0">
+			<Img src={post.img} alt={post.title} width={160} height={160}  attributes={{style: {class:"object-cover w-20 h-20 rounded md:w-40 md:h-40 bg-base-200"}}} />
 		</a>
 	}
 	<div class="flex flex-col gap-4">
-		<h2 class="text-2xl font-bold">
-			<a class="hover:underline" href={`/${post.slug}`}>{post.title}</a>
+		<h2 class="text-2xl font-bold font-title">
+			<a class="hover:underline" href={`/blog/${post.slug}`}>{post.title}</a>
 		</h2>
 		<p class="text-base-content/80">{post.desc}</p>
 	</div>

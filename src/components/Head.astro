@@ -1,26 +1,23 @@
 ---
-
 const siteInfo = {
-  siteName: 'Brian Ketelsen',
+  siteName: 'Daisy Blog',
   siteDesc: 'This is a simple blog',
 }
 
 let {title} = Astro.props;
 let {desc} = Astro.props;
 let {img} = Astro.props;
-let {settings} = Astro.props;
-
+let {twitterUsername} = Astro.props;
 
 if(!title) {
-  title = settings.title;
+  title = siteInfo.siteName
 }
 if(!desc) {
-  desc = settings.description
+  desc = siteInfo.siteDesc
 }
 if(!img) {
-  img = settings.twitter_image
+  img = Astro.site+'card.png'
 }
-
 ---
 
 <head>
@@ -28,14 +25,9 @@ if(!img) {
 	<!-- essential -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-tailwind.png">
-    <script src="../components/js/main.js"></script>
+
   <!-- core -->
-	{title && <title>{title} | {siteInfo.siteName}</title>}
+	{title && <title>{title}</title>}
 	{desc && <meta name="description" content={desc}>}
 	<!-- twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
@@ -43,8 +35,8 @@ if(!img) {
 	{desc && <meta name="twitter:description" content={desc} />}
 	<meta name="twitter:image" content={img} />
 	{title && <meta name="twitter:image:alt" content={title} />}
-<meta name="twitter:site" content={settings.twitter}/>
-<meta name="twitter:creator" content={settings.twitter}/>
+	{twitterUsername && <meta name="twitter:site" content={twitterUsername}/>}
+	{twitterUsername && <meta name="twitter:creator" content={twitterUsername}/>}
 	<!-- og -->
 	{title && <meta property="og:title" content={title} />}
 	{desc && <meta property="og:description" content={desc} />}
@@ -54,6 +46,4 @@ if(!img) {
 	<meta property="og:type" content="object" />
 	<meta property="og:url" content={Astro.site} />
 	<slot/>
-
-
 </head>

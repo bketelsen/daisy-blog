@@ -1,49 +1,44 @@
 ---
 import Blog from "@layouts/blog";
-import Date from "@components/utilities/Date";
-import { Picture } from "astro-imagetools/components";
 
-import { published } from "@data/page"
+import Prose from "@components/Prose";
+import { Img } from "astro-imagetools/components";
+import { published } from "@data/post"
 
 export async function getStaticPaths() {
-  const markdownFiles = await Astro.glob('../content/page/**/*.md');
-  const posts = published(markdownFiles);
+	const markdownFiles = await Astro.glob('../content/pages/**/*.md');
+	const posts = published(markdownFiles);
 
-  return posts.map((page) => {
-    return {
-      params: { page: page.slug },
-      props: { page }
-    };
-  })
+
+	return posts.map((post) => {
+		return {
+			params: { page: post.slug },
+			props: { post }
+		};
+	})
 }
 
 // Destructure to get both `Astro.props.post` and `Astro.props.post.Content`
-const { page: { Content }, page } = Astro.props;
-
+const { post: { Content }, post } = Astro.props;
 ---
 
-<Blog title={page.title} desc={page.excerpt} waves={true} img={page.feature_image ? page.feature_image : null}>
-  <section class="px-2 py-16 md:py-24">
-    <div class="container px-4 mx-auto">
-      <div class="mx-auto mb-12 text-center md:max-w-2xl">
-        <h2 class="mb-4 text-4xl font-bold leading-tight tracking-tighter md:text-5xl text-darkCoolGray-900">
-          {page.title}</h2>
-      </div>
-      <div class="max-w-4xl mx-auto mb-10 overflow-hidden rounded-lg">
-        <figure class="grid grid-cols-1 justify-items-center">
-          {page.feature_image && (
-          <Picture src={page.feature_image} alt={page.feature_image_caption || page.title}
-            sizes="(min-width: 1024px) 1024px, 100vw" />
+<Blog title={post.title} desc={post.desc} img={post.img ? post.img : null}>
+	<div class="flex justify-center">
+		<div class="py-6 prose lg:prose-lg">
+			{post.img && post.imgWidth && post.imgHeight ?
+				<figure class="flex justify-center">
+					<Img src={post.img} alt={post.title} width={post.imgWidth} height={post.imgHeight}  attributes={{style: {class:"rounded bg-base-200"}}} />
+				</figure>
+				: post.img &&
+				<figure class="flex justify-center">
+					<Img src={post.img} alt={post.title} attributes={{style: {class:"rounded bg-base-200"}}} />
+				</figure>
+			}
+			<h1 class="font-title">{post.title}</h1>
 
-          <div class="mt-2 text-sm">{page.feature_image_caption || page.title}</div>
-          )}
-        </figure>
-      </div>
-      <div class="mx-auto md:max-w-3xl">
-        <div class="mt-5 prose prose-xl gh-content">
-          <Content />
-        </div>
-      </div>
-    </div>
-  </section>
+			<Prose>
+				<Content />
+			</Prose>
+		</div>
+	</div>
 </Blog>

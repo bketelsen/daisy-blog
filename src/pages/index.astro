@@ -1,30 +1,33 @@
 ---
 import { published } from "@data/post"
-import Blog from "@layouts/shuffle";
-import Card from "@components/blog/card";
+import Blog from "@layouts/blog";
+import Preview from "@components/blog/preview";
+import Features from "@components/Features";
 
 const markdownFiles = await Astro.glob('../content/blog/**/*.md')
-const posts = published( markdownFiles ).slice(0, 3);
+
+const posts = published(markdownFiles);
 ---
 
-<Blog title="Home" waves={true}>
-	<section class="py-16 bg-base-100 md:py-24 lg:pb-52">
-        <div class="container max-w-5xl px-4 mx-auto">
-          <div class="flex flex-wrap items-center mb-16">
-            <div class="w-full mb-8 md:w-3/4 md:mb-0">
-              <span class="mb-2 uppercase badge badge-success">Blog</span>
-              <h2 class="mb-4 text-4xl font-bold leading-tight tracking-tighter font-title md:text-5xl text-base-content">Recent posts</h2>
-              <p class="text-lg font-medium md:text-xl text-base-content">It was too long for a tweet.</p>
-            </div>
-            <div class="w-full md:w-1/4"><a class="btn btn-primary" href="/blog">View All Posts</a></div>
-          </div>
-          <div class="flex flex-wrap -mx-4">
-			{posts.map((p) =>
-				<Card post={p} />
-			)}
-
-          </div>
+<Blog>
+  <Features title="Brian Ketelsen"
+    subtitle="I'm a developer advocate, keynote speaker, author, open source practitioner. Welcome to my home on the web."
+    tag="hello" />
+  <section class="py-16 bg-base-100 md:py-24 lg:pb-52">
+    <div class="container max-w-5xl px-4 mx-auto">
+      <div class="flex flex-wrap items-center mb-16">
+        <div class="w-full mb-8 md:w-3/4 md:mb-0">
+          <span class="mb-2 uppercase badge badge-success">Blog</span>
+          <h2 class="mb-4 text-4xl font-bold leading-tight tracking-tighter font-title md:text-5xl text-base-content">
+            Recent articles</h2>
+          <p class="text-lg font-medium md:text-xl text-base-content">It was too long for a tweet.</p>
         </div>
-      </section>
-
+        <div class="w-full md:w-1/4"><a class="btn btn-primary" href="/blog">View All Posts</a></div>
+      </div>
+      <div>
+        {posts.map((p) =>
+        <Preview post={p} />)}
+      </div>
+    </div>
+  </section>
 </Blog>
